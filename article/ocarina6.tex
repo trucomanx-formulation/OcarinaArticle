@@ -224,10 +224,16 @@ Subsection text here.
 
 \subsection{Planteamiento del problema}
 
-
+where $\mathbf{P}=[\rho^2,~\rho^4,~\rho^6,~\rho^8,~...,~\rho^{28}]^T$.
 
 \begin{equation}
-\mathbf{z}
+\mathbf{\hat{z}}
+=  
+\mathbf{P} f_{0}^2
+\end{equation}
+
+\begin{equation}
+\mathbf{z}(\mathbf{h})
 =  
 \begin{bmatrix}
 1 \\ 
@@ -274,10 +280,10 @@ h_{6}
 
 
 \begin{equation}
-\mathbf{z}(h) =  \mathbf{L}h_0 +  \mathbf{A} \mathbf{h}
+\mathbf{z}(\mathbf{h}) =  \mathbf{L}h_0 +  \mathbf{A} \mathbf{h}
 \end{equation}
 
-
+where $\mathbf{h}=[h_{1},~h_{1},~...,~h_{6}]^T$.
 \section{minimizacion de errores}
 
 \begin{equation}
@@ -290,6 +296,7 @@ e^2= || \mathbf{\hat{z}} - \mathbf{z}(\mathbf{h}) ||^2
  \left(\mathbf{P}-\mathbf{L}\right)
 h_0
 \end{equation}
+
 
 \begin{equation}
 \mathbf{z}^{*}=
@@ -308,22 +315,34 @@ Subsubsection text here.
 
 \section{Resultados}
 
+
+\begin{equation}
+E_1=100 \frac{f_b-f_a}{f_a}.
+\end{equation}
+
+O error porcentual entre duas frequências $f_a$ e $f_b$ em relação a um semitom ($\rho$) é
+iguala a $E_2$,
+
+\begin{equation}
+E_2=100 \frac{ln(f_b)-ln(f_a)}{ln(\rho)}.
+\end{equation}
+
 En la Tabla \ref{table:res}
 
 \begin{table}[h]
 \center
-\begin{tabular}{c|c|c|c}
-Note & temperada (hz)& optima (hz) & Error \% of $|\delta_{max}| $ \\ \hline
+\begin{tabular}{c|c|c|c|c}
+Note & temperada (hz)& optima (hz) & E_1 & E_2 \\ \hline
 \hline 
-$C$  & 1.0000$f_0$ & 1.0000$f_0$ & 0.00000\%$/\delta_{max}$ \\
-$D$  & 1.1225$f_0$ & 1.1330$f_0$ & 0.93497\%$/\delta_{max}$ \\
-$E$  & 1.2599$f_0$ & 1.2454$f_0$ & 1.15501\%$/\delta_{max}$ \\
-$F$  & 1.3348$f_0$ & 1.3544$f_0$ & 1.46910\%$/\delta_{max}$ \\
-$G$  & 1.4983$f_0$ & 1.5037$f_0$ & 0.36193\%$/\delta_{max}$ \\
-$A_2$& 1.6818$f_0$ & 1.6769$f_0$ & 0.28820\%$/\delta_{max}$ \\
-$B_2$& 1.8877$f_0$ & 1.9079$f_0$ & 1.06636\%$/\delta_{max}$ \\
-$C_2$& 2.0000$f_0$ & 1.9808$f_0$ & 0.95969\%$/\delta_{max}$ \\
-$D_2$& 2.2449$f_0$ & 2.2449$f_0$ & 0.00000\%$/\delta_{max}$ \\ \hline
+$C$  & 1.0000$f_0$ & 1.0000$f_0$ & 0.000\% & 00.000\% \\
+$D$  & 1.1225$f_0$ & 1.1330$f_0$ & 0.935\% & 16.111\% \\
+$E$  & 1.2599$f_0$ & 1.2454$f_0$ &-1.155\% &-20.112\% \\
+$F$  & 1.3348$f_0$ & 1.3544$f_0$ & 1.469\% & 25.248\% \\
+$G$  & 1.4983$f_0$ & 1.5037$f_0$ & 0.362\% & 6.2546\% \\
+$A_2$& 1.6818$f_0$ & 1.6769$f_0$ &-0.288\% &-4.9967\% \\
+$B_2$& 1.8877$f_0$ & 1.9079$f_0$ & 1.066\% & 18.364\% \\
+$C_2$& 2.0000$f_0$ & 1.9808$f_0$ &-0.960\% &-16.695\% \\
+$D_2$& 2.2449$f_0$ & 2.2449$f_0$ & 0.000\% & 0.000\% \\ \hline
 \end{tabular}
 \caption{Table taken from sss}
 \label{table:res}

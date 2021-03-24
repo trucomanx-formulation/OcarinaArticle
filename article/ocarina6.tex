@@ -1,159 +1,182 @@
-
-%% bare_jrnl.tex
-%% V1.3
-%% 2007/01/11
-%% by Michael Shell
-%% see http://www.michaelshell.org/
-%% for current contact information.
-%%
-%% This is a skeleton file demonstrating the use of IEEEtran.cls
-%% (requires IEEEtran.cls version 1.7 or later) with an IEEE journal paper.
-%%
-
-
-\documentclass[journal]{IEEEtran}
-%
-% If IEEEtran.cls has not been installed into the LaTeX system files,
-% manually specify the path to it like:
-% \documentclass[journal]{../sty/IEEEtran}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[]{graphicx}
+\documentclass{article}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{url}
+\usepackage[breaklinks]{hyperref}
+\usepackage{breakurl}
 
-\usepackage[svgnames]{xcolor} % Enabling colors by their 'svgnames'
+\usepackage{graphicx}
+
+\usepackage[svgnames]{xcolor} 
 
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+
+\usepackage{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{bibliografia.bib}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{mydef}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
 
-\newtheorem{mydef}{Definition}
-\newtheorem{corollary}{Corollary}[theorem]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% paper title
+\title{ Error Reduction in the Tuning of Six Hole's Ocarina }
+
+\author{Fernando Pujaico Rivera}
+
+\date{ }
 
 \begin{document}
-%
-% paper title
-% can use linebreaks \\ within to get better formatting as desired
-\title{ Error Reduction in the Tuning of Six Hole's Ocarina }
-%
-%
-
-\author{Fernando Pujaico Rivera% <-this % stops a space
-%\thanks{Los amigos que me regalaron la arcilla}% <-this % stops a space
-%\thanks{Los amigos que me orientaron en la construccion.}% <-this % stops a space
-%\thanks{Las personas que dedicaron tiempo al planteo de reglas fisicas para la ocarina}
-}
 
 
 
-% The paper headers
-\markboth{Journal of \LaTeX\ Class Files,~Vol.~1, No.~1, Junio~2010}%
-{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Journals}
-% The only time the second header will appear is for the odd numbered pages
-% after the title page when using the twoside option.
-% 
-% *** Note that you probably will NOT want to include the author's ***
-% *** name in the headers of peer review papers.                   ***
-% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
-% you desire.
-
-
-
+% keywords: Resonator, Whistles, Helmholtz, ocarina
 % make the title area
 \maketitle
 
 
 \begin{abstract}
-In this work is proposed a method of frequency tuning with minimum error in the six hole's ocarinas,
-It will be based in a minimization rule proposed in this work.
-The error in all notes was obtained and it is compared with the error produced 
-in a process tuning case.
+In this paper we propose an optimal method to tuning a six hole's ocarina,
+this optimization will be based in the minimization of $|| \hat{f}^2-f^2||^2$, the square difference between the square of desired frequency and the square of obtained frequency.
+The results show that it is not possible tuning a John Taylor style six hole's ocarina with an equal temperament scale,
+but the method proposed here obtain an optimal approximation with heterogeneous errors less than $43.697\%$ of a semitone.
 \end{abstract}
-% IEEEtran.cls defaults to using nonbold math in the Abstract.
-% This preserves the distinction between vectors and scalars. However,
-% if the journal you are submitting to favors bold math in the abstract,
-% then you can use LaTeX's standard command \boldmath at the very start
-% of the abstract to achieve this. Many IEEE journals frown on math
-% in the abstract anyway.
-
-% Note that keywords are not normally used for peerreview papers.
-\begin{IEEEkeywords}
-ocarina, tuning.
-\end{IEEEkeywords}
 
 
 
-
-
-
-% For peer review papers, you can put extra information on the cover
-% page as needed:
-% \ifCLASSOPTIONpeerreview
-% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
-% \fi
-%
-% For peerreview papers, this IEEEtran command inserts a page break and
-% creates the second title. It will be ignored for other modes.
-\IEEEpeerreviewmaketitle
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
-\IEEEPARstart{E}{l}  estilo de dedillado de la ocarina tipo pendiente fue desarrollado en 1960
-por John Taylor \cite{JohnTaylorRef} ; el y Barry Jennings \cite{BarryJenningsRef} impulsaron 
-y difundieron este estilo.
+El  estilo de dedillado de la ocarina tipo pendiente fue desarrollado al rededor de 1964
+por Engish mathematician John Taylor \cite[pp. 79]{metropolitan1985american} \cite[pp. 10]{galpin2001newsletter}.
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Math and music}
 In this paper It is used a tuning method with 12 tone equal temperament; thus, the frequency interval
 between any pair of adjacent notes has the same ratio $\rho = {\sqrt[12]{2}}$.
-The Table \ref{tab:notes} shows as the musical notes from $C$ until $\bar{D}$
-are  distributed, where $f_0$ represent the frequency of $C$ note and the next notes
+The Table \ref{tab:notes} shows how are distributed the musical notes from $C$ until $\bar{D}$,
+where $f_0$ represent the frequency of $C$ note and the next notes
 follow the progression ${\rho}^i f_{0}$ with $i$ representing the separation degree with $C$. 
 
 \begin{table}[h]
 \center
 {\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{c|c|c|c|c|c|c|c}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
 \hline
+$\hat{f}_{0}$ & $\hat{f}_{1}$ & $\hat{f}_{2}$ & $\hat{f}_{3}$ & $\hat{f}_{4}$ & $\hat{f}_{5}$ & $\hat{f}_{6}$ & $\hat{f}_{7}$ \\ \hline
 $C$ & $C\#$ & $D$ & $D\#$ & $E$ & $F$ & $F\#$ & $G$ \\ \hline
-$f_{0}$ & ${\rho}^1 f_{0}$ & ${\rho}^2 f_{0}$ & ${\rho}^3 f_{0}$ & ${\rho}^4 f_{0}$ & ${\rho}^5 f_{0}$ & ${\rho}^6 f_{0}$ & ${\rho}^7 f_{0}$  \\
-\hline \hline 
+$f_{0}$ & ${\rho}^1 f_{0}$ & ${\rho}^2 f_{0}$ & ${\rho}^3 f_{0}$ & ${\rho}^4 f_{0}$ & ${\rho}^5 f_{0}$ & ${\rho}^6 f_{0}$ & ${\rho}^7 f_{0}$  \\ \hline
+\hline 
+$\hat{f}_{8}$ & $\hat{f}_{9}$ & $\hat{f}_{10}$ & $\hat{f}_{11}$ & $\hat{f}_{12}$ & $\hat{f}_{13}$ & $\hat{f}_{14}$ & ~ \\ \hline
 $G\#$ & $A$ & $A\#$ & $B$ & $\bar{C}$ & $\bar{C}\#$ & $\bar{D}$  & ~\\ \hline
-${\rho}^8 f_{0}$ & ${\rho}^9 f_{0}$ & ${\rho}^{10} f_{0}$ & ${\rho}^{11} f_{0}$ & ${\rho}^{12} f_{0}$ & ${\rho}^{13} f_{0}$ & ${\rho}^{14} f_{0}$ & ~\\ 
+${\rho}^8 f_{0}$ & ${\rho}^9 f_{0}$ & ${\rho}^{10} f_{0}$ & ${\rho}^{11} f_{0}$ & ${\rho}^{12} f_{0}$ & ${\rho}^{13} f_{0}$ & ${\rho}^{14} f_{0}$ & ~ \\ 
 \hline
 \end{tabular}
 }
+\vspace{5pt}
 \caption{Musical notes}
 \label{tab:notes}
 \end{table}
 
-\begin{mydef}
-Known the frequency relation between the notes, will be defined the variable $\hat{z}_i=\left( {\rho}^{i} f_0 \right)^{2} $,
-so that the  column vector $\mathbf{\hat{z}}$ is represented as in the Eq. \ref{eq:vecz}.
-\begin{equation} \label{eq:vecz}
-\mathbf{\hat{z}}
-= \left( \hat{z}_1, \hat{z}_2, \hat{z}_3, \hdots, \hat{z}_{14}\right)^{T}
+
+\section{Math and ocarina}
+
+\subsection{Analyzing a whistle}
+We can think of an ocarina as a whistle with tone-holes in its resonant cavity,
+so that when we open and close some of these holes we can modify the tuning of generated sound.
+Thus to understand the math of a ocarina first we should to know the science behind the whistles  
+or more formally a Helmholtz resonant cavity \cite{corning2011resonance} (see Fig. \ref{fig:resonador}) excited by a jet-edge-resonator system (see Fig. \ref{football-referee-whistle}) \cite[pp. 3]{gibiat2013acoustic} \cite[pp. 138]{nyborg1953characteristics}. 
+In this sense the Eq. \ref{eq:Apito} 
+\begin{equation} 
+\label{eq:Apito}
+ f_0 = \frac{c}{2 \pi} \sqrt{\frac{A_{0}}{l_{0}V} }  
 \end{equation}
- 
-\end{mydef}
-
-\subsection{The maximum accepted tuning error}
-To obtain the percent value of the maximum accepted tuning error ($\delta_{max}$),
-It is necessary to use the fact that between any two consecutive notes with frequencies
-$f_a$ and $\rho f_a$, exist a proportion of $\rho=1.059463$, this mean
-that the next consecutive note is ever a $+5.9463\%$ that the last note. So that,
-the maximum accepted tuning error in a note, 
-to avoid a recognition mistake, it is equal to $\delta_{max} = \pm 2.9731\% \equiv (\rho-1)/2$.
+shows the way of to calculate the frequency $f_0$ of a theoretic\footnote{A sphere-like resonant cavity and the open area of the neck is much less than the total surface area of the resonant cavity. .} whistle \cite[pp. 3]{gibiat2013acoustic} \cite[pp. 5]{kobayashi20093d} \cite[pp. 265]{okadanumerical}
+in relation with the constants $\pi$  and $c$ (the velocity of sound),  and 
+the variables: $V$ the volume of its resonant cavity,
+$A_0$ is its cross-section area and $l_0$ the effective length of the neck in the resonator.
 
 
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.250\columnwidth]{resonador.eps}
+\caption{whistle. }
+\label{fig:resonador}
+\end{figure}
 
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.250\columnwidth]{football-referee-whistle.eps}
+\caption{whistle. }
+\label{football-referee-whistle}
+\end{figure}
+
+\subsection{Analyzing a ocarina}
+
+The fundamental resonant frequency $f$ of an ocarina, 
+that have at least one circular tone-hole %pitch hole 
+in addition to the sound hole (see Fig. \ref{fig:ocarina-teorica}),
+can be represented like a function of total tone-holes area $A$.
+
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.350\columnwidth]{ocarina-teorica.eps}
+\caption{Theoretic ocarina}
+\label{fig:ocarina-teorica}
+\end{figure}
+
+In the article ``La Ocarina de Zanahoria a Carrot Ocarina'' \cite{mp2010ocarina}
+were analyzed data of the increment of resonant frequency $f$ with the augment of area $A$,
+showing that in that study case the relation between the variable can be approximate with a line 
+\begin{equation}
+f=c_1+ c_2~A.
+\end{equation}
+where $c_1=595.859069$, $c_2=4.324273$ and a mean square error $MSE=8051.1$.
+The Fig. \ref{fig:models} show the linear curve in relation to the collected data.
+
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.750\columnwidth]{compara.eps}
+\caption{Comparing models. }
+\label{fig:models}
+\end{figure}
+
+By other side, 
+if we follow the equation proposed by Bart Hopkin in its book ``Air Columns and Toneholes'' 
+\cite[pp. 44]{cabreraestudio} \cite{1999air},
+we can fit the data of Fig. \ref{fig:models} with a root square function
+\begin{equation}
+f=d_1\sqrt{d_2+A},
+\end{equation}
+where $d_1=91.215856$, $d_2=33.262474$ and a mean square error $MSE=5993.3$.
+
+It last model fit better the data, and the equation proposed by Hopkin
+keep coherence with the Helmholtz resonator equation (see Eq. \ref{eq:Apito}).
+
+In the next section we use the model proposed by Hopkin to obtain the optimal tuning in the ocarina.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Fingering chart in  6 hole's ocarina}
 The Fig. \ref{fig:ocarinaview} represents the hole distribution in the ocarina
 used in this work; where $S_0$ represent the sound hole (voicing)
@@ -165,7 +188,7 @@ and the holes $S_1$, $S_2$, $S_3$, ... and $S_6$ represent the tune holes.
 \label{fig:ocarinaview}
 \end{figure}
 The fingering chart used in this ocarina model is based in the 
-fingering style proposed by John Taylor \cite{JohnTaylorRef}. In the
+4 holes fingering style proposed by John Taylor \cite[pp. 79, 146]{metropolitan1985american}. In the
 Table \ref{table:chart} we can see the fingering chart that indicates the configuration of open or close holes
 to produce the tones from $C$ until $\bar{D}$, where a value $S_i=1$ represents an
 open hole and the value $S_i=0$ a closed hole.
@@ -191,13 +214,20 @@ $\bar{C}\#$& 0 & 1 & 1 & 1 & 1 & 0 \\
 $\bar{D}$& 1 & 1 & 1 & 1 & 1 & 0 \\ 
 \hline 
 \end{tabular}
+\vspace{5pt}
 \caption{Fingering chart}
 \label{table:chart}
 \end{table}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Resonance frequency in ocarinas}
-Subsection text here.
 
+
+If we assume the equation \ref{EcA} as a good approximation to estimate the fundamental frequency $f$ 
+of globular resonators that have at least one circular pitch hole, in addition to the sound hole. 
+
+\cite[pp. 44]{cabreraestudio} \cite{1999air}.
 \begin{equation} \label{EcA}
  f = \frac{c}{2 \pi} \sqrt{\frac{\frac{A_{0}S_{0}}{l_{0}}+\frac{A_{1}S_{1}}{l_{1}}+\frac{A_{2}S_{2}}{l_{2}}+ . . .}{V} }   
 \end{equation}
@@ -209,7 +239,7 @@ Subsection text here.
 \end{equation}
 
 \begin{equation} \label{EcD}
- f^{2} = \sum_{i}{S_i h_i}
+ f^{2} = \sum_{i=0}^{6}{S_i h_i}
 \end{equation}
 
 \begin{corollary}
@@ -224,14 +254,23 @@ Subsection text here.
 
 \subsection{Planteamiento del problema}
 
-where $\mathbf{P}=[\rho^2,~\rho^4,~\rho^6,~\rho^8,~...,~\rho^{28}]^T$.
 
-\begin{equation}
+\begin{mydef}[Square value of the desired frequencies]
+Known the frequency relation between the notes showed in the Table \ref{tab:notes}, 
+we define the variable $\hat{z}_i\equiv \hat{f}_i^2 \equiv \left( {\rho}^{i} f_0 \right)^{2} $,
+so that the  column vector $\mathbf{\hat{z}}= \left[ \hat{z}_1, \hat{z}_2, \hdots, \hat{z}_{14}\right]^{T} $ 
+that contain the square value of the desired frequencies
+is represented as in the Eq. \ref{eq:vecz}.
+\begin{equation} \label{eq:vecz}
 \mathbf{\hat{z}}
-=  
-\mathbf{P} f_{0}^2
+\equiv \mathbf{P} f_{0}^2
 \end{equation}
 
+where $\mathbf{P}=[\rho^2,~\rho^4,~\rho^6,~\rho^8,~...,~\rho^{28}]^T$.
+
+\end{mydef}
+
+\begin{mydef}[Square value of the generated frequencies]
 \begin{equation}
 \mathbf{z}(\mathbf{h})
 =  
@@ -284,6 +323,12 @@ h_{6}
 \end{equation}
 
 where $\mathbf{h}=[h_{1},~h_{1},~...,~h_{6}]^T$.
+
+\end{mydef}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{minimizacion de errores}
 
 \begin{equation}
@@ -311,63 +356,114 @@ Subsubsection text here.
 
 
 
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Resultados}
 
-
+\subsection{Error analisis 1}
 \begin{equation}
-E_1=100 \frac{f_b-f_a}{f_a}.
+E_1=100~\frac{f_b-f_a}{f_a}~\%. 
 \end{equation}
 
+\subsubsection{The biggest accepted tuning error $E_1$}
+\label{subsubsec:max:E1}
+To obtain the percent value of the biggest accepted tuning error,
+It is necessary to use the fact that between any two consecutive notes with frequencies
+$f_a$ and $\rho f_a$, exist a proportion of $\rho\approx 1.059463$, this mean
+that the next consecutive note is ever a $+5.9463\%$ that the last note. So that
+if we set as maximum error, the midway position in geometric proportion in between notes, them 
+the biggest accepted positive tuning error in a note  
+to avoid a recognition mistake, it is equal to $+2.9302\% \equiv 100 (\sqrt{\rho}f_a-f_a)/f_a~\%$.
+By other side 
+the biggest accepted negative tuning error in a note, 
+to avoid a recognition mistake, it is equal to $-2.8468\% \equiv 100 (f_a/\sqrt{\rho}-f_a)/f_a~\%$.
+
+
+
+\subsection{Error analisis 2}
 O error porcentual entre duas frequências $f_a$ e $f_b$ em relação a um semitom ($\rho$) é
 iguala a $E_2$,
 
 \begin{equation}
-E_2=100 \frac{ln(f_b)-ln(f_a)}{ln(\rho)}.
+E_2=100~\frac{ln(f_b)-ln(f_a)}{ln(\rho)}~\%.
 \end{equation}
+
+\subsubsection{The biggest accepted tuning error $E_2$}
+\label{subsubsec:max:E2}
+To obtain the percent value of the biggest accepted tuning error $E_2$,
+we use a similar criteiria to seen in the Sec. \ref{subsubsec:max:E1},
+so that 
+if we set as maximum error, the midway position in geometric proportion in between notes (ex: $C$ and $C\#$), them 
+the biggest accepted positive tuning error in a note  
+to avoid a recognition mistake, it is equal to $+50\% \equiv 100~\frac{ln(\sqrt{\rho} f_a)-ln(f_a)}{ln(\rho)}~\%  $.
+By other side 
+the biggest accepted negative tuning error in a note, 
+to avoid a recognition mistake, it is equal to $-50\% \equiv 100~\frac{ln( f_a/\sqrt{\rho})-ln(f_a)}{ln(\rho)}~\%  $.
+
+
+\subsection{Ordenando dados}
 
 En la Tabla \ref{table:res}
 
 \begin{table}[h]
 \center
-\begin{tabular}{c|c|c|c|c}
-Note & temperada (hz)& optima (hz) & E_1 & E_2 \\ \hline
+\begin{tabular}{|l||c|c||r|r|}
 \hline 
-$C$  & 1.0000$f_0$ & 1.0000$f_0$ & 0.000\% & 00.000\% \\
-$D$  & 1.1225$f_0$ & 1.1330$f_0$ & 0.935\% & 16.111\% \\
-$E$  & 1.2599$f_0$ & 1.2454$f_0$ &-1.155\% &-20.112\% \\
-$F$  & 1.3348$f_0$ & 1.3544$f_0$ & 1.469\% & 25.248\% \\
-$G$  & 1.4983$f_0$ & 1.5037$f_0$ & 0.362\% & 6.2546\% \\
-$A_2$& 1.6818$f_0$ & 1.6769$f_0$ &-0.288\% &-4.9967\% \\
-$B_2$& 1.8877$f_0$ & 1.9079$f_0$ & 1.066\% & 18.364\% \\
-$C_2$& 2.0000$f_0$ & 1.9808$f_0$ &-0.960\% &-16.695\% \\
-$D_2$& 2.2449$f_0$ & 2.2449$f_0$ & 0.000\% & 0.000\% \\ \hline
+Note & Temperada (hz)& Optima (hz) & $E_1$ & $E_2$ \\ \hline
+\hline 
+    $C$ & 1.0000 $f_0$ & 1.0000 $f_0$ &  0.000 \% &   0.000 \% \\ \hline 
+  $C\#$ & 1.0595 $f_0$ & 1.0591 $f_0$ & -0.030 \% &  -0.524 \% \\ \hline 
+    $D$ & 1.1225 $f_0$ & 1.1371 $f_0$ &  1.308 \% &  22.506 \% \\ \hline 
+  $D\#$ & 1.1892 $f_0$ & 1.1895 $f_0$ &  0.024 \% &   0.415 \% \\ \hline 
+    $E$ & 1.2599 $f_0$ & 1.2574 $f_0$ & -0.204 \% &  -3.528 \% \\ \hline 
+    $F$ & 1.3348 $f_0$ & 1.3690 $f_0$ &  2.556 \% &  43.697 \% \\ \hline 
+  $F\#$ & 1.4142 $f_0$ & 1.4005 $f_0$ & -0.973 \% & -16.926 \% \\ \hline 
+    $G$ & 1.4983 $f_0$ & 1.5015 $f_0$ &  0.210 \% &   3.639 \% \\ \hline 
+  $G\#$ & 1.5874 $f_0$ & 1.5944 $f_0$ &  0.443 \% &   7.652 \% \\ \hline 
+  $A_2$ & 1.6818 $f_0$ & 1.6838 $f_0$ &  0.122 \% &   2.108 \% \\ \hline 
+$A_2\#$ & 1.7818 $f_0$ & 1.8138 $f_0$ &  1.796 \% &  30.819 \% \\ \hline 
+  $B_2$ & 1.8877 $f_0$ & 1.8915 $f_0$ &  0.198 \% &   3.421 \% \\ \hline 
+  $C_2$ & 2.0000 $f_0$ & 1.9674 $f_0$ & -1.628 \% & -28.417 \% \\ \hline 
+$C_2\#$ & 2.1189 $f_0$ & 2.1490 $f_0$ &  1.419 \% &  24.401 \% \\ \hline 
+  $D_2$ & 2.2449 $f_0$ & 2.2161 $f_0$ & -1.282 \% & -22.333 \% \\ \hline 
 \end{tabular}
+\vspace{5pt}
 \caption{Table taken from sss}
 \label{table:res}
 \end{table}
 
+
 Considerando um LA de 440 Hz
 \begin{table}[h]
 \center
-\begin{tabular}{c|c|c}
-Note & temperada (hz) & optima (hz)\\ \hline
+\begin{tabular}{|c||c|c|c|}
 \hline                           
-$C$  &  523.25 &  523.25 \\
-$D$  &  587.33 &  592.82 \\
-$E$  &  659.26 &  651.64 \\
-$F$  &  698.46 &  708.72 \\
-$G$  &  783.99 &  786.83 \\
-$A_2$&  880.00 &  877.46 \\
-$B_2$&  987.77 &  998.30 \\
-$C_2$& 1046.50 & 1036.46 \\
-$D_2$& 1174.66 & 1174.66 \\ \hline
+Note & Temperada (hz) & Optima (hz) & $E_2$\\ \hline
+\hline                           
+    $C$ & 523.2511 & 523.2511 &   0.000 \% \\ \hline 
+%  $C\#$ & 554.3653 & 554.1976 &  -0.524 \% \\ \hline 
+    $D$ & 587.3295 & 595.0147 &  22.506 \% \\ \hline 
+%  $D\#$ & 622.2540 & 622.4033 &   0.415 \% \\ \hline 
+    $E$ & 659.2551 & 657.9130 &  -3.528 \% \\ \hline 
+    $F$ & 698.4565 & 716.3102 &  43.697 \% \\ \hline 
+%  $F\#$ & 739.9888 & 732.7892 & -16.926 \% \\ \hline 
+    $G$ & 783.9909 & 785.6404 &   3.639 \% \\ \hline 
+%  $G\#$ & 830.6094 & 834.2888 &   7.652 \% \\ \hline 
+  $A_2$ & 880.0000 & 881.0724 &   2.108 \% \\ \hline 
+%$A_2\#$ & 932.3275 & 949.0732 &  30.819 \% \\ \hline 
+  $B_2$ & 987.7666 & 989.7206 &   3.421 \% \\ \hline 
+  $C_2$ & 1046.5023 & 1029.4647 & -28.417 \% \\ \hline 
+%$C_2\#$ & 1108.7305 & 1124.4680 &  24.401 \% \\ \hline 
+  $D_2$ & 1174.6591 & 1159.6030 & -22.333 \% \\ \hline 
 \end{tabular}
+\vspace{5pt}
 \caption{Table taken from sss}
 \label{table:example1}
 \end{table}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
 The conclusion goes here.
 
@@ -377,89 +473,12 @@ The conclusion goes here.
 %The authors would like to thank...
 
 
-% Can use something like this to put references on a page
-% by themselves when using endfloat and the captionsoff option.
-\ifCLASSOPTIONcaptionsoff
-  \newpage
-\fi
+\printbibliography
 
 
+%\bibitem{JohnTaylorRef}
+%[1]https://johntaylorocarina.wordpress.com/2011/05/19/welcome/
 
-% trigger a \newpage just before the given reference
-% number - used to balance the columns on the last page
-% adjust value as needed - may need to be readjusted if
-% the document is modified later
-%\IEEEtriggeratref{8}
-% The "triggered" command can be changed if desired:
-%\IEEEtriggercmd{\enlargethispage{-5in}}
-
-% references section
-
-% can use a bibliography generated by BibTeX as a .bbl file
-% BibTeX documentation can be easily obtained at:
-% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
-% The IEEEtran BibTeX style support page is at:
-% http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
-% argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
-%
-% <OR> manually copy in the resultant .bbl file
-% set second argument of \begin to the number of references
-% (used to reserve space for the reference number labels box)
-\begin{thebibliography}{2}
-
-\bibitem{JohnTaylorRef}
-http://en.wikipedia.org/wiki/Ocarina
-
-\bibitem{BarryJenningsRef}
-http://www.clayz.com/baz.html
-
-\end{thebibliography}
-
-% biography section
-% 
-% If you have an EPS/PDF photo (graphicx package needed) extra braces are
-% needed around the contents of the optional argument to biography to prevent
-% the LaTeX parser from getting confused when it sees the complicated
-% \includegraphics command within an optional argument. (You could create
-% your own custom macro containing the \includegraphics command to make things
-% simpler here.)
-%\begin{biography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
-% or if you just want to reserve a space for a photo:
-
-%\begin{IEEEbiography}{Michael Shell}
-%Biography text here.
-%\end{IEEEbiography}
-
-% if you will not have a photo at all:
-%\begin{IEEEbiographynophoto}{John Doe}
-%Biography text here.
-%\end{IEEEbiographynophoto}
-
-% insert where needed to balance the two columns on the last page with
-% biographies
-%\newpage
-
-%\begin{IEEEbiographynophoto}{Jane Doe}
-%Biography text here.
-%\end{IEEEbiographynophoto}
-
-% You can push biographies down or up by placing
-% a \vfill before or after them. The appropriate
-% use of \vfill depends on what kind of text is
-% on the last page and whether or not the columns
-% are being equalized.
-
-%\vfill
-
-% Can be used to pull up biographies so that the bottom of the last one
-% is flush with the other column.
-%\enlargethispage{-5in}
-
-
-
-% that's all folks
 \end{document}
 
 

@@ -8,7 +8,7 @@ p=[ a^2 ; %% RE
     a^7 ; %% SOL 
     a^9 ; %% LA 
     a^11; %% SI 
-    a^12; %% DO 
+    a^12; %% DO2
     a^14]'%% RE2 
 P=(p').^2;
 
@@ -26,7 +26,15 @@ A=[ 1, 0, 0, 0, 0 ;
 RR=L+A*inv(A'*A)*A'*(P-L);
 R=sqrt(RR)'
 
-Ep1=100*(R*f0-p*f0)./(p*f0)
+% Ep1_max= 100*[ (1-sqrt(a))/sqrt(a) (sqrt(a)-1) ]
+Ep1=100*(R-p)./(p)
 
-Ep2=100*(log(R*f0)-log(p*f0))/log(a)
+% Ep2_max= 50
+Ep2=100*(log(R)-log(p))/log(a)
+
+NOTES={'$C$','$D$','$E$','$F$','$G$','$A_2$','$B_2$','$C_2$','$D_2$'};
+disp('Table1')
+print_table1(NOTES,[1,p],[1,R],[0,Ep1],[0,Ep2]);
+disp('Table2')
+print_table2(NOTES,[1,p],[1,R],f0,[0,Ep2]);
 

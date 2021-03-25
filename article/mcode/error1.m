@@ -32,7 +32,7 @@ Ep1=100*(R-p)./(p)
 % Ep2_max= 50
 Ep2=100*(log(R)-log(p))/log(a)
 
-NOTES={'$C$','$D$','$E$','$F$','$G$','$A_2$','$B_2$','$C_2$','$D_2$'};
+NOTES={'$C$','$D$','$E$','$F$','$G$','$A$','$B$','$C$','$D$'};
 disp('Table1')
 print_table1(NOTES,[1,p],[1,R],[0,Ep1],[0,Ep2]);
 disp('Table2')

@@ -35,7 +35,8 @@ A=[ 0, 0, 0, 0, 0, 1 ;
     0, 1, 1, 1, 1, 0 ;
     1, 1, 1, 1, 1, 0]; % re
 
-RR=L+A*inv(A'*A)*A'*(P-L);
+H=inv(A'*A)*A'*(P-L)
+RR=L+A*H;
 R=sqrt(RR)'
 
 % Ep1_max= 100*[ (1-sqrt(a))/sqrt(a) (sqrt(a)-1) ]
@@ -49,4 +50,7 @@ disp('Table1')
 print_table1(NOTES,[1,p],[1,R],[0,Ep1],[0,Ep2]);
 disp('Table2')
 print_table2(NOTES,[1,p],[1,R],f0,[0,Ep2]);
+disp('Tableh')
+print_tableh(H);
+print_tableh2(H);
 

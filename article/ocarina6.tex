@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[11pt,twocolumn]{article}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{url}
@@ -16,6 +16,7 @@
 \usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
 
 \usepackage{comment}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[
 backend=biber,
@@ -23,19 +24,28 @@ style=alphabetic,
 sorting=ynt
 ]{biblatex}
 \addbibresource{bibliografia.bib}
-
+\renewcommand*{\bibfont}{\footnotesize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{ntheorem}
+\makeatletter
+\renewtheoremstyle{plain}% Adds automatic line break, if heading is too long
+  {\item{\theorem@headerfont ##1\ ##2\theorem@separator}~}
+  {\item{\theorem@headerfont ##1\ ##2\ (##3)\theorem@separator}~}
+\makeatother
+
 \newtheorem{theorem}{Theorem}%[section]
 \newtheorem{mydef}{Definition}[section]
 \newtheorem{corollary}{Corollary}[section]
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % paper title
-\title{ Error Reduction in the Tuning of Six Hole's Ocarina }
+\title{ An Optimal Method for Tuning a Six Hole's Ocarina }
 
 \author{Fernando Pujaico Rivera}
 
@@ -52,10 +62,10 @@ sorting=ynt
 
 \begin{abstract}
 In this paper we propose an optimal method for tuning a six hole's ocarina,
-this optimization will be subordinated by the minimization of $|| \mathbf{\hat{f}}^2-\mathbf{f}^2||^2$, 
+this optimization will be subordinated by the minimization of 
 the square norm of square difference between the desired and obtained frequency.
-The results show that it is not possible tuning a John Taylor style six hole's ocarina with an equal temperament scale,
-but the method proposed here obtain an optimal approximation with heterogeneous errors less than $43.697\%$ of a semitone.
+The results show that it is not possible tuning a John Taylor style six hole's ocarina with a perfect equal temperament scale,
+but the minimization rule returns a tuning method with an optimal approximation and heterogeneous errors less than $43.697\%$ of a semitone.
 \end{abstract}
 
 
@@ -69,19 +79,19 @@ by the Engish mathematician John Taylor \cite[pp. 79]{metropolitan1985american} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Fingering chart in  6 hole's ocarina}
+\section{Fingering chart in six hole's ocarina}
 The Fig. \ref{fig:ocarinaview} represents the hole distribution of the ocarina
 used in this work, where $S_0$ represent the sound hole (voicing)
 and the holes $S_1$, $S_2$, $S_3$, ... and $S_6$ represent the tone-holes.
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=0.50\columnwidth]{ocarina-view.eps}
-\caption{View of 6 hole ocarina. }
+\caption{View of six hole's ocarina. }
 \label{fig:ocarinaview}
 \end{figure}
 The fingering chart used in this ocarina model is based in the 
-4 holes fingering style proposed by John Taylor \cite[pp. 79, 146]{metropolitan1985american}. In the
-Table \ref{table:chart} we can see the fingering chart that indicates the configuration of open or close holes
+4 holes fingering style proposed by John Taylor \cite[pp. 79, 146]{metropolitan1985american}, the
+Table \ref{table:chart} shows the fingering chart, it indicates the configuration of open or close holes
 to produce the tones from $C$ until $D$ (a higher octave ), where a value $S_i=1$ represents an
 open hole and the value $S_i=0$ a closed hole.
 \begin{table}[h!]
@@ -118,21 +128,24 @@ In this paper we analyze a tuning method with 12 tone equal temperament; so that
 between any pair of adjacent notes has the same ratio $\rho = {\sqrt[12]{2}}$.
 The Table \ref{tab:notes} shows how are distributed the musical notes from tone $C$ until $D$ (a higher octave ),
 where $f_0$ represent the frequency of $C$ note and the next notes
-follow the progression $\hat{f}_{i}={\rho}^i f_{0}$ with $i$ representing the separation degree with $C$. 
+follow the geometric progression $\hat{f}_{i}={\rho}^i f_{0}$ with $i$ representing the separation degree with $C$. 
 
 \begin{table}[h]
 \center
-{\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{|c|c|c|c|c|c|c|c|}
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|c|c|}
 \hline
-$\hat{f}_{0}$ & $\hat{f}_{1}$ & $\hat{f}_{2}$ & $\hat{f}_{3}$ & $\hat{f}_{4}$ & $\hat{f}_{5}$ & $\hat{f}_{6}$ & $\hat{f}_{7}$ \\ \hline
-$C$ & $C\#$ & $D$ & $D\#$ & $E$ & $F$ & $F\#$ & $G$ \\ \hline
-$f_{0}$ & ${\rho}^1 f_{0}$ & ${\rho}^2 f_{0}$ & ${\rho}^3 f_{0}$ & ${\rho}^4 f_{0}$ & ${\rho}^5 f_{0}$ & ${\rho}^6 f_{0}$ & ${\rho}^7 f_{0}$  \\ \hline
+$\hat{f}_{0}$ & $\hat{f}_{1}$    & $\hat{f}_{2}$    & $\hat{f}_{3}$    & $\hat{f}_{4}$    \\ \hline
+$C$           & $C\#$            & $D$              & $D\#$            & $E$              \\ \hline
+$f_{0}$       & ${\rho}^1 f_{0}$ & ${\rho}^2 f_{0}$ & ${\rho}^3 f_{0}$ & ${\rho}^4 f_{0}$ \\ \hline
+\hline
+$\hat{f}_{5}$    & $\hat{f}_{6}$    & $\hat{f}_{7}$    & $\hat{f}_{8}$    & $\hat{f}_{9}$    \\ \hline
+$F$              & $F\#$            & $G$              & $G\#$            & $A$              \\ \hline
+${\rho}^5 f_{0}$ & ${\rho}^6 f_{0}$ & ${\rho}^7 f_{0}$ & ${\rho}^8 f_{0}$ & ${\rho}^9 f_{0}$ \\ \hline
 \hline 
-$\hat{f}_{8}$ & $\hat{f}_{9}$ & $\hat{f}_{10}$ & $\hat{f}_{11}$ & $\hat{f}_{12}$ & $\hat{f}_{13}$ & $\hat{f}_{14}$ & ~ \\ \hline
-$G\#$ & $A$ & $A\#$ & $B$ & $C$ & $C\#$ & $D$  & ~\\ \hline
-${\rho}^8 f_{0}$ & ${\rho}^9 f_{0}$ & ${\rho}^{10} f_{0}$ & ${\rho}^{11} f_{0}$ & ${\rho}^{12} f_{0}$ & ${\rho}^{13} f_{0}$ & ${\rho}^{14} f_{0}$ & ~ \\ 
-\hline
+$\hat{f}_{10}$      & $\hat{f}_{11}$      & $\hat{f}_{12}$      & $\hat{f}_{13}$      & $\hat{f}_{14}$      \\ \hline
+$A\#$               & $B$                 & $C$                 & $C\#$               & $D$                 \\ \hline
+${\rho}^{10} f_{0}$ & ${\rho}^{11} f_{0}$ & ${\rho}^{12} f_{0}$ & ${\rho}^{13} f_{0}$ & ${\rho}^{14} f_{0}$ \\ \hline
 \end{tabular}
 }
 \vspace{5pt}
@@ -161,7 +174,7 @@ $A_0$ is its cross-section area and $l_0$ the effective length of the neck in th
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=0.250\columnwidth]{resonador.eps}
+\includegraphics[width=0.350\columnwidth]{resonador.eps}
 \caption{whistle. }
 \label{fig:resonador}
 \end{figure}
@@ -183,7 +196,7 @@ can be represented like a function of the total tone-holes area $A$.
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=0.350\columnwidth]{ocarina-teorica.eps}
+\includegraphics[width=0.750\columnwidth]{ocarina-teorica.eps}
 \caption{Theoretic ocarina}
 \label{fig:ocarina-teorica}
 \end{figure}
@@ -239,47 +252,50 @@ additionally $S_0=1$ and represent the sound hole, being $A_0$ and $l_0$ their c
 
 
 \subsubsection{Reordering the resonance equation}
-
-so that $h_{i}\propto \frac{A_{i}}{l_{i}}$
+We can rearrange the Eq. \ref{EcA} defining the variable $h_{i}\propto \frac{A_{i}}{l_{i}}$, so that
 \begin{equation} \label{EcC}
- h_{i} =  \left( \frac{c^2}{4 {\pi}^2 V}\right) \left( \frac{A_{i}}{l_{i}}    \right) 
+ h_{i} \equiv  \left( \frac{c^2}{4 {\pi}^2 V}\right) \left( \frac{A_{i}}{l_{i}}    \right);
 \end{equation}
-
+This variable change imply that the Eq. \ref{EcA} can be rewrite as
 \begin{equation} \label{EcD}
- f^{2} = \sum_{i=0}^{6}{S_i h_i}
+ f^{2} = \sum_{i=0}^{6}{S_i h_i}.
 \end{equation}
-
-\begin{corollary}
-
-\begin{equation} 
- f_0^{2} = h_0
-\end{equation}
- 
-\end{corollary}
+It is important remember that following the Eqs. \ref{eq:Apito} and \ref{EcD},
+when all the tone-hole's are close we obtain that 
+\begin{equation} \label{EcDa}
+f_0^{2} = h_0.
+\end{equation} 
 
 
 
 \section{Problem Statement}
 
 
-\begin{mydef}[Square value of the desired frequencies]
+\begin{mydef}[
+$\mathbf{\hat{z}}$ - Square value of the desired frequencies]
 Known the frequency relation between the notes showed in the Table \ref{tab:notes}, 
-we define the variable $\hat{z}_i\equiv \hat{f}_i^2 \equiv \left( {\rho}^{i} f_0 \right)^{2} $,
-so that the  column vector $\mathbf{\hat{z}}= \left[ \hat{z}_1, \hat{z}_2, \hdots, \hat{z}_{14}\right]^{T} $ 
-that contain the square value of the desired frequencies
-is represented as in the Eq. \ref{eq:vecz}.
+we define the variable $\hat{z}_i\equiv \hat{f}_i^2 = \left( {\rho}^{i} f_0 \right)^{2} $,
+so that the  column vector $\mathbf{\hat{z}}= \left[ \hat{z}_1, \hat{z}_2, \hdots, \hat{z}_{14}\right]^{T} $, 
+that contain the square value of the desired frequencies, 
+can be represented as in the Eq. \ref{eq:vecz}.
 \begin{equation} \label{eq:vecz}
 \mathbf{\hat{z}}
-\equiv \mathbf{P} f_{0}^2
+\equiv \mathbf{p} f_{0}^2
 \end{equation}
-
-where $\mathbf{P}=[\rho^2,~\rho^4,~\rho^6,~\rho^8,~...,~\rho^{28}]^T$.
-
+where $\mathbf{p}=[\rho^2,~\rho^4,~\rho^6,~\rho^8,~...,~\rho^{28}]^T$.
 \end{mydef}
 
-\begin{mydef}[Square value of the generated frequencies]
+\begin{mydef}[
+$\mathbf{z}(\mathbf{h})$ - Square value of the generated frequencies]
+If we rearrange the Eqs. \ref{EcD} and \ref{EcDa} for all notes in Table \ref{table:chart},
+we obtain the next equation
 \begin{equation}
-\mathbf{z}(\mathbf{h})
+\label{eq:genfec}
+\mathbf{z}(\mathbf{h}) =  \mathbf{q}h_0 +  \mathbf{A} \mathbf{h}
+\end{equation}
+where 
+\begin{equation}
+\mathbf{q}
 =  
 \begin{bmatrix}
 1 \\ 
@@ -297,7 +313,7 @@ where $\mathbf{P}=[\rho^2,~\rho^4,~\rho^6,~\rho^8,~...,~\rho^{28}]^T$.
 1 \\ 
 1
 \end{bmatrix}
-h_{0} + 
+, \qquad \mathbf{A}=
 \begin{bmatrix}
 0 & 0 & 0 & 0 & 0 & 1 \\
 1 & 0 & 0 & 0 & 0 & 0 \\
@@ -313,106 +329,137 @@ h_{0} +
 1 & 1 & 1 & 1 & 0 & 0 \\
 0 & 1 & 1 & 1 & 1 & 0 \\
 1 & 1 & 1 & 1 & 1 & 0 
-\end{bmatrix} 
-\begin{bmatrix}
-h_{1} \\
-h_{2} \\
-h_{3} \\
-h_{4} \\
-h_{5} \\
-h_{6}
-\end{bmatrix} 
+\end{bmatrix}, 
 \end{equation}
-
-
-\begin{equation}
-\mathbf{z}(\mathbf{h}) =  \mathbf{L}h_0 +  \mathbf{A} \mathbf{h}
-\end{equation}
-
-where $\mathbf{h}=[h_{1},~h_{1},~...,~h_{6}]^T$.
-
+$\mathbf{h}=[h_{1},~h_{2},~h_{3},~h_{4},~h_{5},~h_{6}]^T$ and 
+$\mathbf{z}(\mathbf{h})=[z_{1}(\mathbf{h}),~z_{2}(\mathbf{h}),~...,~z_{14}(\mathbf{h})]^T$.
+Being $z_{i}(\mathbf{h})$ the square value of $i-th$ frequency generate by the ocarina given a $\mathbf{h}$ 
+relation of areas and effective lengths in its tone-holes.
 \end{mydef}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{minimizacion de errores}
-
+\subsection{Minimization rule and optimal value}
+Known and calculated the desired and generated frequencies seen in the Eqs. \ref{eq:vecz} and \ref{eq:genfec},
+we propose the next minimization rule
 \begin{equation}
-e^2= || \mathbf{\hat{z}} - \mathbf{z}(\mathbf{h}) ||^2
+\label{eq:minimization}
+e^2(\mathbf{h})= || \mathbf{\hat{z}} - \mathbf{z}(\mathbf{h}) ||^2,
 \end{equation}
-
+where the unknown variable is the vector $\mathbf{h}$.
+This problem can be fitted as a case of multiple linear regression 
+that can be solved using the Tikhonov regularization
+\cite[pp. 79, 80]{pujaicoriverafernando2020}.
+Thus, following this method, we obtain the vector $\mathbf{h}^{*}$ that minimize the function $e^2(\mathbf{h})$,
 \begin{equation}
+\label{eq:optimalh}
 \mathbf{h}^{*}=
  \left(\mathbf{A}^T\mathbf{A}\right)^{-1}\mathbf{A}^T
- \left(\mathbf{P}-\mathbf{L}\right)
-h_0
+ \left(\mathbf{p}-\mathbf{q}\right)
+h_0,
 \end{equation}
-
-
+if we use this results joint the Eqs. \ref{EcDa} and \ref{eq:genfec}, 
+we obtain that
 \begin{equation}
 \mathbf{z}^{*}=
-\left(\mathbf{L}
+\left(\mathbf{q}
 +\mathbf{A}\left(\mathbf{A}^T\mathbf{A}\right)^{-1}\mathbf{A}^T
- \left(\mathbf{P}-\mathbf{L}\right) \right)
-f_0^2
+ \left(\mathbf{p}-\mathbf{q}\right) \right)
+f_0^2,
 \end{equation}
-
+being $\mathbf{z}^{*}$ the square value of the generated frequencies
+that minimize the function $e^2(\mathbf{h})$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Resultados}
 
-\subsection{Error analisis 1}
+\begin{mydef}[$E_1$ - relative tuning error ]
+\label{def:max:E1}
+The first type of error used in this work is 
 \begin{equation}
-E_1=100~\frac{f_b-f_a}{f_a}~\%. 
-\end{equation}
+E_1=100~\frac{f_b-f_a}{f_a}~\%,
+\end{equation} 
+that measures the difference error of $f_b$ in relation to the target frequency ($f_a$) or relative tuning error.
 
-\subsubsection{The biggest accepted tuning error $E_1$}
-\label{subsubsec:max:E1}
-To obtain the percent value of the biggest accepted tuning error,
-It is necessary to use the fact that between any two consecutive notes with frequencies
-$f_a$ and $\rho f_a$, exist a proportion of $\rho\approx 1.059463$, this mean
-that the next consecutive note is ever a $+5.9463\%$ that the last note. So that
-if we set as maximum error, the midway position in geometric proportion in between notes, them 
-the biggest accepted positive tuning error in a note  
-to avoid a recognition mistake, it is equal to $+2.9302\% \equiv 100 (\sqrt{\rho}f_a-f_a)/f_a~\%$.
+
+To obtain the biggest accepted relative tuning error,
+It is necessary to know the fact that between any two consecutive notes, with frequencies
+$f_a$ and $\rho f_a$, exist a proportion of $\rho\approx 1.059463$ (a semitone), this mean
+that the next consecutive note is ever a $+5.9463\%$ that the last note. Thus, 
+if we set as maximum error the midway position in geometric proportion between notes, them 
+the biggest accepted positive relative tuning error 
+to avoid a tone recognition mistake, it is equal to $+2.9302\% \equiv 100 (\sqrt{\rho}f_a-f_a)/f_a~\%$.
 By other side 
-the biggest accepted negative tuning error in a note, 
-to avoid a recognition mistake, it is equal to $-2.8468\% \equiv 100 (f_a/\sqrt{\rho}-f_a)/f_a~\%$.
+the biggest accepted negative relative tuning error 
+to avoid a tone recognition mistake, it is equal to $-2.8468\% \equiv 100 (f_a/\sqrt{\rho}-f_a)/f_a~\%$.
 
+\end{mydef}
 
-
-\subsection{Error analisis 2}
-O error porcentual entre duas frequências $f_a$ e $f_b$ em relação a um semitom ($\rho$) é
-iguala a $E_2$,
-
+\begin{mydef}[$E_2$ - semitone error]
+\label{def:max:E2}
+The logarithmic difference error between two frequencies $f_a$ and $f_b$ in relation to a semitone ($\rho$) is
+defined as
 \begin{equation}
-E_2=100~\frac{ln(f_b)-ln(f_a)}{ln(\rho)}~\%.
+E_2=100~\frac{ln(f_b)-ln(f_a)}{ln(\rho)}~\%, 
 \end{equation}
+called here as semitone error.
 
-\subsubsection{The biggest accepted tuning error $E_2$}
-\label{subsubsec:max:E2}
-To obtain the percent value of the biggest accepted tuning error $E_2$,
-we use a similar criteiria to seen in the Sec. \ref{subsubsec:max:E1},
+
+To obtain the biggest accepted semitone error,
+we use a similar criterion as seen in the Def. \ref{def:max:E1},
 so that 
-if we set as maximum error, the midway position in geometric proportion in between notes (ex: $C$ and $C\#$), them 
-the biggest accepted positive tuning error in a note  
-to avoid a recognition mistake, it is equal to $+50\% \equiv 100~\frac{ln(\sqrt{\rho} f_a)-ln(f_a)}{ln(\rho)}~\%  $.
+if we set as maximum error the midway position in geometric proportion between notes (ex: $C$ and $C\#$), them 
+the biggest accepted positive tuning error 
+to avoid a tone recognition mistake, it is equal to $+50\% \equiv 100~\frac{ln(\sqrt{\rho} f_a)-ln(f_a)}{ln(\rho)}~\%  $.
 By other side 
-the biggest accepted negative tuning error in a note, 
-to avoid a recognition mistake, it is equal to $-50\% \equiv 100~\frac{ln( f_a/\sqrt{\rho})-ln(f_a)}{ln(\rho)}~\%  $.
+the biggest accepted negative semitone error 
+to avoid a tone recognition mistake, it is equal to $-50\% \equiv 100~\frac{ln( f_a/\sqrt{\rho})-ln(f_a)}{ln(\rho)}~\%  $.
+\end{mydef}
 
 
-\subsection{Ordenando dados}
-
-En la Tabla \ref{table:res}
-
+\subsection{Analyzing the optimal $\mathbf{h^*}$}
+In the Eq. \ref{eq:optimalh} was calculated $\mathbf{h^*}=[h_1^*,$ $h_2^*,$ $...,$ $h_6^*]^{T}$, 
+the optimal vector that minimize the function $e(\mathbf{h})$. 
+The Table \ref{table:h} shows each element of this vector in relation to $h_0$, 
+being that $ h_{i}^*/h_{0} \equiv  \left( \frac{l_0}{A_0}\right) \left( \frac{A_{i}}{l_{i}}    \right)$.
 \begin{table}[h]
 \center
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline                           
+$h_1^*/h_0$ & $h_2^*/h_0$ & $h_3^*/h_0$ & $h_4^*/h_0$ & $h_5^*/h_0$ & $h_6^*/h_0$ \\ \hline
+\hline                           
+ 29.3\% & 58.1\% & 96.1\% &103.5\% &104.1\% & 12.2\%  \\ \hline
+\end{tabular}}
+%\vspace{5pt}
+\caption{Percentage ratio between $h_{i}^*$ and $h_{0}$.}
+\label{table:h}
+\end{table}
+
+In this table we observe that if 
+we consider $l_{i}$ a constant in all ocarina 
+then $h_{i}^*/h_{0} \propto A_{i}$ and 
+the percentages presented in the Table \ref{table:h} describes the ratio of proportions between areas $A_i$.
+So that below this conditions 
+the optimal area $A_{2}$ is about twice $A_{1}$, 
+the optimal area $A_{3}$ is about $3.27 A_{1}$   
+and so on.
+
+
+
+
+\subsection{Analyzing the optimal frequencies}
+
+The Tabla \ref{table:res} shows a comparison between the desired 
+and optimal generated frequencies for each note in a six hole's ocarina.
+\begin{table}[h]
+\center
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{|l||c|c||r|r|}
 \hline 
-Note & Temperada (hz)& Optima (hz) & $E_1$ & $E_2$ \\ \hline
+Note & Desired (hz)& Optimal (hz) & $E_1$ & $E_2$ \\ \hline
 \hline 
     $C$ & 1.0000 $f_0$ & 1.0000 $f_0$ &  0.000 \% &   0.000 \% \\ \hline 
   $C\#$ & 1.0595 $f_0$ & 1.0591 $f_0$ & -0.030 \% &  -0.524 \% \\ \hline 
@@ -429,19 +476,42 @@ Note & Temperada (hz)& Optima (hz) & $E_1$ & $E_2$ \\ \hline
     $C$ & 2.0000 $f_0$ & 1.9674 $f_0$ & -1.628 \% & -28.417 \% \\ \hline 
   $C\#$ & 2.1189 $f_0$ & 2.1490 $f_0$ &  1.419 \% &  24.401 \% \\ \hline 
     $D$ & 2.2449 $f_0$ & 2.2161 $f_0$ & -1.282 \% & -22.333 \% \\ \hline 
-\end{tabular}
-\vspace{5pt}
-\caption{Table taken from sss}
+\end{tabular}}
+%\vspace{5pt}
+\caption{Errors in optimal tuning}
 \label{table:res}
 \end{table}
+The first column shows all notes used in the optimization calculation.
+The second column has the desired frequencies (equal temperament scale),
+this column is equivalent to the root square value of $\mathbf{\hat{z}}$.
+The third column has the optimal generated frequencies,
+this column is equivalent to the root square value of $\mathbf{z^*}$.
+The fourth and fifth columns have the errors described in the Definitions \ref{def:max:E1} and \ref{def:max:E1},
+respectively.
+
+The worst error $E_1$ is equal to $+2.556\%$ and correspond to the note $F$,
+similarly this note present the worst error $E_2$ with a detour of $43.697\%$ of a semitone.
+The next worst error $E_1$ is equal to $+1.796\%$ and correspond to the note $A\#$,
+having an error $E_2$ with a detour of $30.819\%$ of a semitone.
 
 
-Considerando um LA de 440 Hz
+\subsection{Proposed tuning method}
+From the data of the Table \ref{table:res}, 
+we can infer an ocarina construction method that fulfill 
+an optimal tuning following the minimization rule of the Eq. \ref{eq:minimization}.
+In this sense if we choose of this table a set of notes, 
+in which each current note use a new tone hole in relation to the last tuned note, 
+we can obtain a tuning method or path to reach an optimal tuning.
+
+With this considerations, the Table \ref{table:example1} shows one tuning method,
+where is considered a $C$ note equal to $523.2511 hz$.
+
 \begin{table}[h]
 \center
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{|c||c|c|c|}
 \hline                           
-Note & Temperada (hz) & Optima (hz) & $E_2$\\ \hline
+Note & Desired (hz) & Optimal (hz) & $E_2$\\ \hline
 \hline                           
     $C$ & 523.2511 & 523.2511 &   0.000 \% \\ \hline 
   $C\#$ & 554.3653 & 554.1976 &  -0.524 \% \\ \hline 
@@ -458,9 +528,9 @@ Note & Temperada (hz) & Optima (hz) & $E_2$\\ \hline
 %  $C$ & 1046.5023 & 1029.4647 & -28.417 \% \\ \hline 
 %$C\#$ & 1108.7305 & 1124.4680 &  24.401 \% \\ \hline 
   $D$ & 1174.6591 & 1159.6030 & -22.333 \% \\ \hline 
-\end{tabular}
-\vspace{5pt}
-\caption{Table taken from sss}
+\end{tabular}}
+%\vspace{5pt}
+\caption{Proposed tuning method.}
 \label{table:example1}
 \end{table}
 

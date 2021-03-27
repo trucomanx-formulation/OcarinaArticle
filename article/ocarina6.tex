@@ -45,7 +45,7 @@ sorting=ynt
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % paper title
-\title{ An Optimal Method for Tuning a Six Hole's Ocarina }
+\title{ An Optimal Method for Tuning a Six Holes Ocarina }
 
 \author{Fernando Pujaico Rivera}
 
@@ -61,10 +61,10 @@ sorting=ynt
 
 
 \begin{abstract}
-In this paper we propose an optimal method for tuning a six hole's ocarina,
+In this paper we propose an optimal method for tuning a six holes ocarina,
 this optimization will be subordinated by the minimization of 
-the square norm of square difference between the desired and obtained frequency.
-The results show that it is not possible tuning a John Taylor style six hole's ocarina with a perfect equal temperament scale,
+the square norm of square difference between the desired and obtained resonant frequency.
+The results show that it is not possible tuning a John Taylor style six holes ocarina with a perfect equal temperament scale,
 but the minimization rule returns a tuning method with an optimal approximation and heterogeneous errors less than $43.697\%$ of a semitone.
 \end{abstract}
 
@@ -73,20 +73,43 @@ but the minimization rule returns a tuning method with an optimal approximation 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
+The ocarina is an extremely ancient musical instrument widely used in worldwide. 
+It is classified as a globular flute,
+depending on the culture we can find shapes like animals, vegetables or anthropomorphic.
+Exist vestiges of clay ocarinas in 
+Shang dynasty peoples in Bronze Age China, 
+Bantu peoples of Southern Africa,
+pre-Columbian cultures in Peru, etc.
+\cite[pp. 589]{apel1969harvard} \cite{sachs1940history} \cite[pp. 31]{leinweber2020art} \cite{rossi2020recuperacion}.
 
-The fingering style of the pendant-type ocarina was developed around 1964 
-by the Engish mathematician John Taylor \cite[pp. 79]{metropolitan1985american} \cite[pp. 10]{galpin2001newsletter}.
+The ocarinas around the world present many fingering tune methods and musical scales,
+one the last fingering style for 4 holes pendant-type ocarina was developed around 1964 
+by the English mathematician John Taylor 
+to approximate the tuning of a equal temperament scale 
+\cite[pp. 79]{metropolitan1985american} \cite[pp. 10]{galpin2001newsletter}.
+In this method, 
+the degree of approximation to an equal temperament scale depends a lot on the ability of the potter or craftsman
+in to choose the correct size of area and clay thickness in all the tone holes.
+
+The work presented here, will study the math behind the whistles (an ocarina without tone holes)  
+or more formally a Helmholtz resonant cavity \cite{corning2011resonance} excited by a jet-edge-resonator system \cite[pp. 3]{gibiat2013acoustic} \cite[pp. 138]{nyborg1953characteristics}. 
+Additionally will be studied some proposed models to describe 
+in a whistles with tone holes (an ocarina)
+the resonant frequency in function of the size area and  clay thickness in the tone holes 
+\cite{mp2010ocarina} \cite[pp. 44]{cabreraestudio} \cite{1999air}.
+Finally, using a cost function an optimal tuning method will be presented 
+and the approximation error will be shown. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Fingering chart in six hole's ocarina}
+\section{Fingering chart in six holes ocarina}
 The Fig. \ref{fig:ocarinaview} represents the hole distribution of the ocarina
 used in this work, where $S_0$ represent the sound hole (voicing)
 and the holes $S_1$, $S_2$, $S_3$, ... and $S_6$ represent the tone-holes.
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=0.50\columnwidth]{ocarina-view.eps}
-\caption{View of six hole's ocarina. }
+\includegraphics[width=0.750\columnwidth]{ocarina-view.eps}
+\caption{View of six holes ocarina. }
 \label{fig:ocarinaview}
 \end{figure}
 The fingering chart used in this ocarina model is based in the 
@@ -213,7 +236,7 @@ The Fig. \ref{fig:models} show the linear curve in relation to the collected dat
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=0.50\columnwidth]{compara.eps}
+\includegraphics[width=0.850\columnwidth]{compara.eps}
 \caption{Comparing models. }
 \label{fig:models}
 \end{figure}
@@ -231,7 +254,7 @@ We must highlight that $d_2$ represents the area of sound hole.
 This last model fit better the data, 
 also the equation proposed by Hopkin keep coherence with the Helmholtz resonator equation (see Eq. \ref{eq:Apito}).
 In the next section we use the model proposed by Hopkin to obtain a optimal tuning in 
-John Taylor style six hole's ocarina.
+John Taylor style six holes ocarina.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -261,7 +284,7 @@ This variable change imply that the Eq. \ref{EcA} can be rewrite as
  f^{2} = \sum_{i=0}^{6}{S_i h_i}.
 \end{equation}
 It is important remember that following the Eqs. \ref{eq:Apito} and \ref{EcD},
-when all the tone-hole's are close we obtain that 
+when all the tone-holes are close we obtain that 
 \begin{equation} \label{EcDa}
 f_0^{2} = h_0.
 \end{equation} 
@@ -373,7 +396,7 @@ that minimize the function $e^2(\mathbf{h})$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Resultados}
+\section{Results}
 
 \begin{mydef}[$E_1$ - relative tuning error ]
 \label{def:max:E1}
@@ -453,7 +476,7 @@ and so on.
 \subsection{Analyzing the optimal frequencies}
 
 The Tabla \ref{table:res} shows a comparison between the desired 
-and optimal generated frequencies for each note in a six hole's ocarina.
+and optimal generated frequencies for each note in a six holes ocarina.
 \begin{table}[h]
 \center
 \resizebox{\columnwidth}{!}{%
@@ -494,6 +517,11 @@ similarly this note present the worst error $E_2$ with a detour of $43.697\%$ of
 The next worst error $E_1$ is equal to $+1.796\%$ and correspond to the note $A\#$,
 having an error $E_2$ with a detour of $30.819\%$ of a semitone.
 
+By the results show in the Table \ref{table:res}, we observe that 
+the optimal vector $\mathbf{h^*}$ causes that $e^2(\mathbf{h^*})> 0$
+and consequently a perfect equal temperament scale 
+it is not possible to be applied in the tuning of a John Taylor style six holes ocarina
+only an optimal aproximation.
 
 \subsection{Proposed tuning method}
 From the data of the Table \ref{table:res}, 
@@ -501,10 +529,13 @@ we can infer an ocarina construction method that fulfill
 an optimal tuning following the minimization rule of the Eq. \ref{eq:minimization}.
 In this sense if we choose of this table a set of notes, 
 in which each current note use a new tone hole in relation to the last tuned note, 
-we can obtain a tuning method or path to reach an optimal tuning.
+we can obtain a tuning method or sequence to reach an optimal tuning.
 
-With this considerations, the Table \ref{table:example1} shows one tuning method,
-where is considered a $C$ note equal to $523.2511 hz$.
+With these considerations, the Table \ref{table:example1} shows one tuning method 
+in which is considered a $C$ note equal to $523.2511 hz$.
+The method consist in follow the table \ref{table:example1} line a line the from top at bottom.
+So that we set in our ocarina, with each new created tone hole, 
+the semitone error ($E_2$) shown in the fourth column of the table.
 
 \begin{table}[h]
 \center
@@ -538,12 +569,13 @@ Note & Desired (hz) & Optimal (hz) & $E_2$\\ \hline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
-The conclusion goes here.
-
-
-% use section* for acknowledgement
-%\section*{Acknowledgment}
-%The authors would like to thank...
+The results of Table \ref{table:res} shows that it is not possible tuning a John Taylor style six holes ocarina with a perfect equal temperament scale,
+but the minimization rule presented in this work returns a tuning method with an optimal approximation and heterogeneous errors less than $43.697\%$ of a semitone.
+Additionally, the Table \ref{table:example1} shows one, of several possibles, construction methods, 
+paths or sequences to fulfill an optimal tuning according the minimization rule defined in the Eq. \ref{eq:minimization} and with 
+the resonance frequency in ocarinas proposed by Bart Hopkin.
+This method can be complemented with the information of the relations between areas $A_i$ and effective lengths $l_i$ 
+in an optimal tuning shown in the Table \ref{table:h}.
 
 
 \printbibliography

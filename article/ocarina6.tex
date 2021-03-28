@@ -45,7 +45,7 @@ sorting=ynt
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % paper title
-\title{ An Optimal Method for Tuning a Six Holes Ocarina }
+\title{An Optimal Method for Tuning a Six-Hole Ocarina }
 
 \author{Fernando Pujaico Rivera}
 
@@ -61,10 +61,10 @@ sorting=ynt
 
 
 \begin{abstract}
-In this paper we propose an optimal method for tuning a six holes ocarina,
+In this paper we propose an optimal method for tuning a six-hole ocarina,
 this optimization will be subordinated by the minimization of 
 the square norm of square difference between the desired and obtained resonant frequency.
-The results show that it is not possible tuning a John Taylor style six holes ocarina with a perfect equal temperament scale,
+The results show that it is not possible to tune a John Taylor style six-hole ocarina with a perfect equal temperament scale, 
 but the minimization rule returns a tuning method with an optimal approximation and heterogeneous errors less than $43.697\%$ of a semitone.
 \end{abstract}
 
@@ -80,42 +80,41 @@ Exist vestiges of clay ocarinas in
 Shang dynasty peoples in Bronze Age China, 
 Bantu peoples of Southern Africa,
 pre-Columbian cultures in Peru, etc.
-\cite[pp. 589]{apel1969harvard} \cite{sachs1940history} \cite[pp. 31]{leinweber2020art} \cite{rossi2020recuperacion}.
+\cite[pp. 589]{apel1969harvard} \cite[pp. 166-168]{sachs2012history} \cite[pp. 31]{leinweber2020art} \cite{rossi2020recuperacion}.
 
 The ocarinas around the world present many fingering tune methods and musical scales,
 one the last fingering style for 4 holes pendant-type ocarina was developed around 1964 
 by the English mathematician John Taylor 
-to approximate the tuning of a equal temperament scale 
+to approximate the tuning of an equal temperament scale 
 \cite[pp. 79]{metropolitan1985american} \cite[pp. 10]{galpin2001newsletter}.
 In this method, 
 the degree of approximation to an equal temperament scale depends a lot on the ability of the potter or craftsman
-in to choose the correct size of area and clay thickness in all the tone holes.
+in to choose the correct size of area and clay thickness in all the tone-holes.
 
-The work presented here, will study the math behind the whistles (an ocarina without tone holes)  
+The work presented here, will study the math behind the whistles (an ocarina without tone-holes)  
 or more formally a Helmholtz resonant cavity \cite{corning2011resonance} excited by a jet-edge-resonator system \cite[pp. 3]{gibiat2013acoustic} \cite[pp. 138]{nyborg1953characteristics}. 
-Additionally will be studied some proposed models to describe 
-in a whistles with tone holes (an ocarina)
-the resonant frequency in function of the size area and  clay thickness in the tone holes 
+Additionally, will be studied some proposed models to describe in whistles with tone-holes (an ocarina),
+the resonant frequency in function of the size area and  clay thickness in the tone-holes 
 \cite{mp2010ocarina} \cite[pp. 44]{cabreraestudio} \cite{1999air}.
 Finally, using a cost function an optimal tuning method will be presented 
 and the approximation error will be shown. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Fingering chart in six holes ocarina}
+\section{Fingering chart in six-hole ocarina}
 The Fig. \ref{fig:ocarinaview} represents the hole distribution of the ocarina
 used in this work, where $S_0$ represent the sound hole (voicing)
 and the holes $S_1$, $S_2$, $S_3$, ... and $S_6$ represent the tone-holes.
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=0.750\columnwidth]{ocarina-view.eps}
-\caption{View of six holes ocarina. }
+\caption{View of six-hole ocarina. }
 \label{fig:ocarinaview}
 \end{figure}
-The fingering chart used in this ocarina model is based in the 
-4 holes fingering style proposed by John Taylor \cite[pp. 79, 146]{metropolitan1985american}, the
-Table \ref{table:chart} shows the fingering chart, it indicates the configuration of open or close holes
-to produce the tones from $C$ until $D$ (a higher octave ), where a value $S_i=1$ represents an
+The fingering chart used in this ocarina model is shown in the Table \ref{table:chart} and it is based in the 
+4 holes fingering style proposed by John Taylor \cite[pp. 79, 146]{metropolitan1985american}. 
+This table indicates the configuration of open or close holes
+to produce the tones from $C$ until $D$ (a higher octave), where a value $S_i=1$ represents an 
 open hole and the value $S_i=0$ a closed hole.
 \begin{table}[h!]
 \center
@@ -136,8 +135,8 @@ $A\#$& 1 & 0 & 1 & 1 & 0 & 0 \\
 $B$  & 0 & 1 & 1 & 1 & 0 & 0 \\
 $C$& 1 & 1 & 1 & 1 & 0 & 0 \\
 $C\#$& 0 & 1 & 1 & 1 & 1 & 0 \\
-$D$& 1 & 1 & 1 & 1 & 1 & 0 \\ 
-\hline 
+$D$& 1 & 1 & 1 & 1 & 1 & 0 \\
+\hline
 \end{tabular}
 \vspace{5pt}
 \caption{Fingering chart}
@@ -147,7 +146,7 @@ $D$& 1 & 1 & 1 & 1 & 1 & 0 \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Math and music}
-In this paper we analyze a tuning method with 12 tone equal temperament; so that, the frequency interval
+In this paper we analyze a tuning method with 12 tone equal temperament scale; so that, the frequency interval
 between any pair of adjacent notes has the same ratio $\rho = {\sqrt[12]{2}}$.
 The Table \ref{tab:notes} shows how are distributed the musical notes from tone $C$ until $D$ (a higher octave ),
 where $f_0$ represent the frequency of $C$ note and the next notes
@@ -190,9 +189,9 @@ In this sense the Eq. \ref{eq:Apito}
  f_0 = \frac{c}{2 \pi} \sqrt{\frac{A_{0}}{l_{0}V} }  
 \end{equation}
 shows the way of to calculate the frequency $f_0$ of a theoretic\footnote{A sphere-like resonant cavity and the open area of the neck is much less than the total surface area of the resonant cavity. .} whistle \cite[pp. 3]{gibiat2013acoustic} \cite[pp. 5]{kobayashi20093d} \cite[pp. 265]{okadanumerical}
-in relation with the constants $\pi$  and $c$ (the velocity of sound),  and 
+in relation with the constants $\pi$  and $c$ (the velocity of sound), and 
 the variables: $V$ the volume of its resonant cavity,
-$A_0$ is its cross-section area and $l_0$ the effective length of the neck in the resonator.
+$A_0$ its cross-section neck area and $l_0$ the neck effective length in the resonator.
 
 
 \begin{figure}[ht!]
@@ -210,7 +209,7 @@ $A_0$ is its cross-section area and $l_0$ the effective length of the neck in th
 \end{figure}
 
 \subsection{Analyzing an ocarina}
-
+\label{subsec:analyzing}
 The fundamental resonant frequency $f$ of an ocarina, 
 that have at least one circular tone-hole %pitch hole 
 in addition to the sound hole (see Fig. \ref{fig:ocarina-teorica}),
@@ -226,12 +225,12 @@ can be represented like a function of the total tone-holes area $A$.
 
 In the article ``La Ocarina de Zanahoria a Carrot Ocarina'' \cite{mp2010ocarina}
 were analyzed data about of the increment of resonant frequency $f$ in relation to the augment of area $A$,
-showing that in that study case the relationships between the variables can be approximated with a line 
+showing that in that case study the relationships between the variables can be approximated with a line 
 \begin{equation}
 f=c_1+ c_2~A.
 \end{equation}
 where $c_1=595.859069$, $c_2=4.324273$ and a mean square error $MSE=8051.1$.
-The Fig. \ref{fig:models} show the linear curve in relation to the collected data.
+The Fig. \ref{fig:models} shows this linear curve in relation to the collected data.
 
 
 \begin{figure}[ht!]
@@ -243,34 +242,34 @@ The Fig. \ref{fig:models} show the linear curve in relation to the collected dat
 
 By other side, 
 if we follow the equation proposed by Bart Hopkin in its book ``Air Columns and Toneholes'' 
-\cite[pp. 44]{cabreraestudio} \cite{1999air},
-we can fit the data of Fig. \ref{fig:models} with a root square function
+\cite[pp. 44]{cabreraestudio} \cite{1999air} and we assume that all the neck effective lengths in the tone-holes are equals,
+we can fit the data of Fig. \ref{fig:models} with a square root function
 \begin{equation}
 f=d_1\sqrt{d_2+A},
 \end{equation}
 where $d_1=91.215856$, $d_2=33.262474$ and a mean square error $MSE=5993.3$.
-We must highlight that $d_2$ represents the area of sound hole. 
+We must highlight that in this model $d_2$ represents the area of the sound hole. 
 
 This last model fit better the data, 
-also the equation proposed by Hopkin keep coherence with the Helmholtz resonator equation (see Eq. \ref{eq:Apito}).
-In the next section we use the model proposed by Hopkin to obtain a optimal tuning in 
-John Taylor style six holes ocarina.
+also the equation proposed by Hopkin keep coherence with the Helmholtz resonator equation (seen in Eq. \ref{eq:Apito}).
+In the next section we use the model proposed by Hopkin to obtain an optimal tuning in 
+John Taylor style six-hole ocarina.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Resonance frequency in ocarinas}
-
-
-If we assume the equation \ref{EcA} proposed by Bart Hopkin \cite[pp. 44]{cabreraestudio} \cite{1999air},
+\label{subsec:Resonance}
+For what is explained in the Sec. \ref{subsec:analyzing} 
+we assume the equation \ref{EcA}, proposed by Bart Hopkin \cite[pp. 44]{cabreraestudio} \cite{1999air},
 \begin{equation} \label{EcA}
  f = \frac{c}{2 \pi} \sqrt{\frac{\frac{A_{0}S_{0}}{l_{0}}+\frac{A_{1}S_{1}}{l_{1}}+\frac{A_{2}S_{2}}{l_{2}}+ . . .}{V} }   
 \end{equation}
 as a good approximation to estimate the fundamental frequency $f$ 
 of globular resonators that have at least one circular pitch hole in addition to the sound hole (a.k.a. an ocarina). 
-in which $A_i$ and $l_i$ are the area an the effective length of the $S_i$ tone-hole,
-so that the variable $S_i$ has only have two values $\{0,1\}$ according the Table \ref{table:chart},
-additionally $S_0=1$ and represent the sound hole, being $A_0$ and $l_0$ their corresponding variables. 
+in which $A_i$ and $l_i$ are the area and the effective length of the $S_i$ tone-hole, 
+so that the variable $S_i$ has only two values $\{0,1\}$ according to the Table \ref{table:chart}; 
+additionally, $S_0=1$ and represent the sound hole, being $A_0$ and $l_0$ their corresponding variables. 
 
 
 
@@ -279,15 +278,15 @@ We can rearrange the Eq. \ref{EcA} defining the variable $h_{i}\propto \frac{A_{
 \begin{equation} \label{EcC}
  h_{i} \equiv  \left( \frac{c^2}{4 {\pi}^2 V}\right) \left( \frac{A_{i}}{l_{i}}    \right);
 \end{equation}
-This variable change imply that the Eq. \ref{EcA} can be rewrite as
+This variable change imply that the Eq. \ref{EcA} can be rewritten as
 \begin{equation} \label{EcD}
  f^{2} = \sum_{i=0}^{6}{S_i h_i}.
 \end{equation}
-It is important remember that following the Eqs. \ref{eq:Apito} and \ref{EcD},
+It is important to remember that following the Eqs. \ref{eq:Apito} and \ref{EcD},
 when all the tone-holes are close we obtain that 
 \begin{equation} \label{EcDa}
 f_0^{2} = h_0.
-\end{equation} 
+\end{equation}
 
 
 
@@ -408,7 +407,7 @@ that measures the difference error of $f_b$ in relation to the target frequency 
 
 
 To obtain the biggest accepted relative tuning error,
-It is necessary to know the fact that between any two consecutive notes, with frequencies
+it is necessary to know the fact that between any two consecutive notes, with frequencies
 $f_a$ and $\rho f_a$, exist a proportion of $\rho\approx 1.059463$ (a semitone), this mean
 that the next consecutive note is ever a $+5.9463\%$ that the last note. Thus, 
 if we set as maximum error the midway position in geometric proportion between notes, them 
@@ -433,8 +432,8 @@ called here as semitone error.
 To obtain the biggest accepted semitone error,
 we use a similar criterion as seen in the Def. \ref{def:max:E1},
 so that 
-if we set as maximum error the midway position in geometric proportion between notes (ex: $C$ and $C\#$), them 
-the biggest accepted positive tuning error 
+if we set the maximum error as the midway position in geometric proportion between notes (ex: $C$ and $C\#$), them 
+the biggest accepted positive semitone error 
 to avoid a tone recognition mistake, it is equal to $+50\% \equiv 100~\frac{ln(\sqrt{\rho} f_a)-ln(f_a)}{ln(\rho)}~\%  $.
 By other side 
 the biggest accepted negative semitone error 
@@ -444,7 +443,7 @@ to avoid a tone recognition mistake, it is equal to $-50\% \equiv 100~\frac{ln( 
 
 \subsection{Analyzing the optimal $\mathbf{h^*}$}
 In the Eq. \ref{eq:optimalh} was calculated $\mathbf{h^*}=[h_1^*,$ $h_2^*,$ $...,$ $h_6^*]^{T}$, 
-the optimal vector that minimize the function $e(\mathbf{h})$. 
+the optimal vector that minimize the function $e^2(\mathbf{h})$. 
 The Table \ref{table:h} shows each element of this vector in relation to $h_0$, 
 being that $ h_{i}^*/h_{0} \equiv  \left( \frac{l_0}{A_0}\right) \left( \frac{A_{i}}{l_{i}}    \right)$.
 \begin{table}[h]
@@ -462,10 +461,10 @@ $h_1^*/h_0$ & $h_2^*/h_0$ & $h_3^*/h_0$ & $h_4^*/h_0$ & $h_5^*/h_0$ & $h_6^*/h_0
 \end{table}
 
 In this table we observe that if 
-we consider $l_{i}$ a constant in all ocarina 
+we consider $l_{i}$ a constant throughout the ocarina 
 then $h_{i}^*/h_{0} \propto A_{i}$ and 
 the percentages presented in the Table \ref{table:h} describes the ratio of proportions between areas $A_i$.
-So that below this conditions 
+So that below this condition 
 the optimal area $A_{2}$ is about twice $A_{1}$, 
 the optimal area $A_{3}$ is about $3.27 A_{1}$   
 and so on.
@@ -476,7 +475,7 @@ and so on.
 \subsection{Analyzing the optimal frequencies}
 
 The Tabla \ref{table:res} shows a comparison between the desired 
-and optimal generated frequencies for each note in a six holes ocarina.
+and optimal generated frequencies for each note in a six-hole ocarina.
 \begin{table}[h]
 \center
 \resizebox{\columnwidth}{!}{%
@@ -506,35 +505,35 @@ Note & Desired (hz)& Optimal (hz) & $E_1$ & $E_2$ \\ \hline
 \end{table}
 The first column shows all notes used in the optimization calculation.
 The second column has the desired frequencies (equal temperament scale),
-this column is equivalent to the root square value of $\mathbf{\hat{z}}$.
+this column is equivalent to the square root of vector $\mathbf{\hat{z}}$.
 The third column has the optimal generated frequencies,
-this column is equivalent to the root square value of $\mathbf{z^*}$.
-The fourth and fifth columns have the errors described in the Definitions \ref{def:max:E1} and \ref{def:max:E1},
+this column is equivalent to the square root of vector $\mathbf{z^*}$.
+The fourth and fifth columns have the errors described in the Definitions \ref{def:max:E1} and \ref{def:max:E2},
 respectively.
 
-The worst error $E_1$ is equal to $+2.556\%$ and correspond to the note $F$,
-similarly this note present the worst error $E_2$ with a detour of $43.697\%$ of a semitone.
+The worst error $E_1$ is equal to $+2.556\%$ and correspond to the note $F$; 
+similarly, this note present the worst error $E_2$ with a detour of $43.697\%$ of a semitone. 
 The next worst error $E_1$ is equal to $+1.796\%$ and correspond to the note $A\#$,
 having an error $E_2$ with a detour of $30.819\%$ of a semitone.
 
 By the results show in the Table \ref{table:res}, we observe that 
 the optimal vector $\mathbf{h^*}$ causes that $e^2(\mathbf{h^*})> 0$
 and consequently a perfect equal temperament scale 
-it is not possible to be applied in the tuning of a John Taylor style six holes ocarina
-only an optimal aproximation.
+it is not possible to be applied in the tuning of a John Taylor style six-hole ocarina
+only an optimal approximation. 
 
 \subsection{Proposed tuning method}
 From the data of the Table \ref{table:res}, 
 we can infer an ocarina construction method that fulfill 
 an optimal tuning following the minimization rule of the Eq. \ref{eq:minimization}.
 In this sense if we choose of this table a set of notes, 
-in which each current note use a new tone hole in relation to the last tuned note, 
+in which each current note use a new tone-hole in relation to the last tuned note, 
 we can obtain a tuning method or sequence to reach an optimal tuning.
 
-With these considerations, the Table \ref{table:example1} shows one tuning method 
-in which is considered a $C$ note equal to $523.2511 hz$.
-The method consist in follow the table \ref{table:example1} line a line the from top at bottom.
-So that we set in our ocarina, with each new created tone hole, 
+With these considerations, the Table \ref{table:example1} shows one tuning method, 
+in which is considered a $C$ note equivalent to $523.2511 hz$.
+The method consist in follow the table \ref{table:example1} line a line from top at bottom. 
+So that we set in our ocarina, with each new created tone-hole, 
 the semitone error ($E_2$) shown in the fourth column of the table.
 
 \begin{table}[h]
@@ -569,11 +568,11 @@ Note & Desired (hz) & Optimal (hz) & $E_2$\\ \hline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
-The results of Table \ref{table:res} shows that it is not possible tuning a John Taylor style six holes ocarina with a perfect equal temperament scale,
+The results of Table \ref{table:res} shows that it is not possible tuning a John Taylor style six-hole ocarina with a perfect equal temperament scale,
 but the minimization rule presented in this work returns a tuning method with an optimal approximation and heterogeneous errors less than $43.697\%$ of a semitone.
 Additionally, the Table \ref{table:example1} shows one, of several possibles, construction methods, 
-paths or sequences to fulfill an optimal tuning according the minimization rule defined in the Eq. \ref{eq:minimization} and with 
-the resonance frequency in ocarinas proposed by Bart Hopkin.
+paths or sequences to fulfill an optimal tuning according to the minimization rule defined in the Eq. \ref{eq:minimization} and with 
+the resonance frequency equation in ocarinas proposed by Bart Hopkin.
 This method can be complemented with the information of the relations between areas $A_i$ and effective lengths $l_i$ 
 in an optimal tuning shown in the Table \ref{table:h}.
 

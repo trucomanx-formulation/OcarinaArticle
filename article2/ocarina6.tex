@@ -72,7 +72,7 @@ In this paper we propose an optimal method for tuning a six-hole ocarina,
 this optimization will be subordinated by the minimization of 
 the square norm of square difference between the desired and obtained resonant frequency.
 The results show that it is not possible to tune a John Taylor style six-hole ocarina with a perfect equal temperament scale, 
-but the minimization rule returns a tuning method with an optimal approximation and heterogeneous errors less than $43.697\%$ of a semitone.
+but the minimization rule returns a tuning method with an optimal approximation and heterogeneous errors less than $35.613\%$ of a semitone.
 \end{abstract}
 
 
@@ -81,7 +81,7 @@ but the minimization rule returns a tuning method with an optimal approximation 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 The ocarina is an extremely ancient musical instrument widely used in worldwide. 
-It is classified as a globular flute,
+It is classified as a globular flute and
 depending on the culture we can find shapes like animals, vegetables or anthropomorphic.
 Exist vestiges of clay ocarinas in 
 Shang dynasty peoples in Bronze Age China, 
@@ -98,11 +98,11 @@ In this method,
 the degree of approximation to an equal temperament scale depends a lot on the ability of the potter or craftsman
 in to choose the correct size of area and clay thickness in all the tone-holes.
 
-The work presented here, will study the math behind the whistles (an ocarina without tone-holes)  
+The work presented here will study the math behind the whistles (an ocarina without tone-holes)  
 or more formally a Helmholtz resonant cavity \cite{corning2011resonance} excited by a jet-edge-resonator system \cite[pp. 3]{gibiat2013acoustic} \cite[pp. 138]{nyborg1953characteristics}. 
 Additionally, will be studied some proposed models to describe in whistles with tone-holes (an ocarina),
 the resonant frequency in function of the size area and  clay thickness in the tone-holes 
-\cite{mp2010ocarina} \cite[pp. 44]{cabreraestudio} \cite{1999air}.
+\cite{mp2010ocarina} \cite[pp. 44]{cabreraestudio} \cite[pp. 16]{1999air}.
 Finally, using a cost function an optimal tuning method will be presented 
 and the approximation error will be shown. 
 
@@ -110,7 +110,7 @@ and the approximation error will be shown.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Fingering chart in six-hole ocarina}
 The Fig. \ref{fig:ocarinaview} represents the hole distribution of the ocarina
-used in this work, where $S_0$ represent the sound hole (voicing)
+used in this work, where $S_0$ represents the sound hole (voicing)
 and the holes $S_1$, $S_2$, $S_3$, ... and $S_6$ represent the tone-holes.
 \begin{figure}[ht!]
 \centering
@@ -119,7 +119,7 @@ and the holes $S_1$, $S_2$, $S_3$, ... and $S_6$ represent the tone-holes.
 \label{fig:ocarinaview}
 \end{figure}
 The fingering chart used in this ocarina model is shown in the Table \ref{table:chart} and it is based in the 
-4 holes fingering style proposed by John Taylor \cite[pp. 79, 146]{metropolitan1985american}. 
+4 holes fingering style proposed by John Taylor \cite[pp. 79, 146]{metropolitan1985american} \cite[pp. 30]{1999air}. 
 This table indicates the configuration of open or close holes
 to produce the tones from $C$ until $D$ (a higher octave), where a value $S_i=1$ represents an 
 open hole and the value $S_i=0$ a closed hole.
@@ -153,11 +153,11 @@ $D$& 1 & 1 & 1 & 1 & 1 & 0 \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Math and music}
-In this paper we analyze a tuning method with 12 tone equal temperament scale; so that, the frequency interval
+In this paper we analyze a tuning method with 12 tone in an equal temperament scale; so that, the frequency interval
 between any pair of adjacent notes has the same ratio $\rho = {\sqrt[12]{2}}$.
-The Table \ref{tab:notes} shows how are distributed the musical notes from tone $C$ until $D$ (a higher octave ),
-where $f_0$ represent the frequency of $C$ note and the next notes
-follow the geometric progression $\hat{f}_{i}={\rho}^i f_{0}$ with $i$ representing the separation degree with $C$. 
+The Table \ref{tab:notes} shows how are distributed the musical notes from tone $C$ until $D$ (a higher octave),
+where $f_0$ represents the frequency of $C$ note and the next notes
+follow a geometric progression $\hat{f}_{i}={\rho}^i f_{0}$ with $i$ representing the separation degree with the $C$ note. 
 
 \begin{table}[h]
 \center
@@ -187,15 +187,15 @@ ${\rho}^{10} f_{0}$ & ${\rho}^{11} f_{0}$ & ${\rho}^{12} f_{0}$ & ${\rho}^{13} f
 
 \subsection{Analyzing a whistle}
 We can think of an ocarina as a whistle with tone-holes in its resonant cavity,
-so that when we open and close some of these holes we can modify the tone of generated sound.
-Thus to understand the math of an ocarina first we should to know the science behind the whistles  
+so that when we open and close some of these holes, we can modify the pitch of generated sound.
+Thus, to understand the math of an ocarina first we should to know the science behind the whistles  
 or more formally a Helmholtz resonant cavity \cite{corning2011resonance} (see Fig. \ref{fig:resonador}) excited by a jet-edge-resonator system (see Fig. \ref{football-referee-whistle}) \cite[pp. 3]{gibiat2013acoustic} \cite[pp. 138]{nyborg1953characteristics}. 
 In this sense the Eq. \ref{eq:Apito} 
 \begin{equation} 
 \label{eq:Apito}
  f_0 = \frac{c}{2 \pi} \sqrt{\frac{A_{0}}{l_{0}V} }  
 \end{equation}
-shows the way of to calculate the frequency $f_0$ of a theoretic\footnote{A sphere-like resonant cavity and the open area of the neck is much less than the total surface area of the resonant cavity. .} whistle \cite[pp. 3]{gibiat2013acoustic} \cite[pp. 5]{kobayashi20093d} \cite[pp. 265]{okadanumerical}
+shows the way of to calculate the frequency $f_0$ of a theoretic\footnote{In  a sphere-like resonant cavity, the open area of the neck should be much less than the total surface area of the resonant cavity.} whistle \cite[pp. 3]{gibiat2013acoustic} \cite[pp. 5]{kobayashi20093d} \cite[pp. 265]{okadanumerical}
 in relation with the constants $\pi$  and $c$ (the velocity of sound), and 
 the variables: $V$ the volume of its resonant cavity,
 $A_0$ its cross-section neck area and $l_0$ the neck effective length in the resonator.
@@ -249,7 +249,7 @@ The Fig. \ref{fig:models} shows this linear curve in relation to the collected d
 
 By other side, 
 if we follow the equation proposed by Bart Hopkin in its book ``Air Columns and Toneholes'' 
-\cite[pp. 44]{cabreraestudio} \cite{1999air} and we assume that all the neck effective lengths in the tone-holes are equals,
+\cite[pp. 44]{cabreraestudio} \cite[pp. 16]{1999air} and we assume that all the neck effective lengths in the tone-holes are equals,
 we can fit the data of Fig. \ref{fig:models} with a square root function
 \begin{equation}
 f=d_1\sqrt{d_2+A},
@@ -267,8 +267,8 @@ John Taylor style six-hole ocarina.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Resonance frequency in ocarinas}
 \label{subsec:Resonance}
-For what is explained in the Sec. \ref{subsec:analyzing} 
-we assume the equation \ref{EcA}, proposed by Bart Hopkin \cite[pp. 44]{cabreraestudio} \cite{1999air},
+For what is explained in the Sec. \ref{subsec:analyzing}, here 
+we use the equation \ref{EcA}, proposed by Bart Hopkin \cite[pp. 44]{cabreraestudio} \cite[pp. 16]{1999air},
 \begin{equation} \label{EcA}
  f = \frac{c}{2 \pi} \sqrt{\frac{\frac{A_{0}S_{0}}{l_{0}}+\frac{A_{1}S_{1}}{l_{1}}+\frac{A_{2}S_{2}}{l_{2}}+ . . .}{V} }   
 \end{equation}
@@ -276,30 +276,31 @@ as a good approximation to estimate the fundamental frequency $f$
 of globular resonators that have at least one circular pitch hole in addition to the sound hole (a.k.a. an ocarina). 
 in which $A_i$ and $l_i$ are the area and the effective length of the $S_i$ tone-hole, 
 so that the variable $S_i$ has only two values $\{0,1\}$ according to the Table \ref{table:chart}; 
-additionally, $S_0=1$ and represent the sound hole, being $A_0$ and $l_0$ their corresponding variables. 
+additionally, $S_0=1$ and represents the sound hole, being $A_0$ and $l_0$ their corresponding variables. 
 
 
 
 \subsubsection{Reordering the resonance equation}
-We can rearrange the Eq. \ref{EcA} defining the variable $h_{i}\propto \frac{A_{i}}{l_{i}}$, so that
+We can rearrange the Eq. \ref{EcA} defining the variable $h_{i}\propto \frac{A_{i}}{l_{i}}$ 
+and the constant $k$, so that
 \begin{equation} \label{EcC}
-k \equiv \frac{c}{2 {\pi}\sqrt{V}},\qquad  h_{i} \equiv  \frac{A_{i}}{l_{i}} ;
+k \equiv \frac{c}{2 {\pi}\sqrt{V}},\qquad  h_{i} \equiv  \frac{A_{i}}{l_{i}}.
 \end{equation}
 This variable change imply that the Eq. \ref{EcA} can be rewritten as
 \begin{equation} \label{EcD}
 f = k \sqrt{h_0 +\sum_{i=1}^{6}{S_i h_i}},
 \end{equation}
 It is important to remember that following the Eqs. \ref{eq:Apito} and \ref{EcD},
-when all the tone-holes are close we obtain that 
+when all the tone-holes are closed we obtain that 
 \begin{equation} \label{EcDa}
-f(\mathbf{0}) \equiv f_0 = k \sqrt{h_0}.
+f_0 = k \sqrt{h_0}. %%f(\mathbf{0}) \equiv 
 \end{equation}
 
 \subsubsection{Generated frequencies in a six-hole ocarina}
 
-If our intention is to generate all the frequencies in a six-hole ocarina
+If our intention is to generate by approximation all the 14 frequencies in a six-hole ocarina
 similar to seen in Table \ref{tab:notes}, then we 
-use the Eq. \ref{EcD} to calculate the frequency $f_j(\mathbf{h})$ of the $j$-th row in the Table \ref{tab:notes},
+use the Eq. \ref{EcD} to approximate the (note) frequency $f_j(\mathbf{h})$ of the $j$-th row in the Table \ref{table:chart},
 \begin{equation} \label{EcDbh}
 f_j(\mathbf{h}) = k \sqrt{h_0 +\sum_{i=1}^{6}{S^{j}_{i} h_i}},
 \end{equation}
@@ -308,7 +309,7 @@ f_j(\mathbf{h}) = k \sqrt{h_0 +\sum_{i=1}^{6}{S^{j}_{i} h_i}},
 \end{equation}
 where the unknown variable $\mathbf{h}=[h_{1},$ $~h_{2},$ $~h_{3},$ $~h_{4},$ $~h_{5},$ $~h_{6}]^T$
 and 
-the constant $S_{i}^{j}$ is the element in the row $j$ column $i$ in the matrix $\mathbf{S}$,
+the constant $S_{i}^{j}$ is the element of the row $j$ and column $i$ in the matrix $\mathbf{S}$,
 \begin{equation}
  \mathbf{S}=
 \begin{bmatrix}
@@ -346,15 +347,15 @@ We propose the next minimization rule
 \begin{matrix}
 e^2(\mathbf{h}) & = & \sum\limmits_{j=1}^{14}\left(\frac{f_{j}(\mathbf{h})-\hat{f}_{j}}{\hat{f}_{j}}\right)^2\\
 %~ & = & \sum\limmits_{j=1}^{14}\left(1-\frac{f_{j}(\mathbf{h})}{\hat{f}_{j}}\right)^2 \\
-~ & = & \sum\limmits_{j=1}^{14}\left(\frac{1}{\rho^j}\sqrt{1+\sum\limmits_{i=1}^{6} \frac{S_{i}^{j} h_i}{h_0}}-1\right)^2
+~ & = & \sum\limmits_{j=1}^{14}\left(\frac{1}{\rho^j}\sqrt{1+\sum\limmits_{i=1}^{6} \frac{S_{i}^{j} h_i}{h_0}}-1\right)^2.
 \end{matrix}
 %|| \mathbf{\hat{z}} - \mathbf{z}(\mathbf{h}) ||^2,
 \end{equation}
-If 
+If we define
 \begin{equation}\label{eq:varchange}
 \mathbf{\hat{h}}=\mathbf{h}/h_0,
 \end{equation}
-then
+then $e^2(\mathbf{h})$ can be rewritten as
 \begin{equation}
 e^2(\mathbf{h}) \equiv \hat{e}^2(\mathbf{\hat{h}}) = \left\|\mathbf{g}(\mathbf{\hat{h}})-\mathbf{q}\right\|^2
 \end{equation}
@@ -376,7 +377,7 @@ Thus, following this method, we obtain that the vector $\mathbf{\hat{h}}^{*}$,
 \begin{equation}
 \mathbf{\hat{h}}^{*}= \underset{\mathbf{\hat{h}}}{\operatorname {arg\,min}}~\hat{e}^2(\mathbf{\hat{h}})
 \end{equation}
-following iteratively the Eq. \ref{eq:iterativa:1} 
+can be calculated following iteratively the Eq. \ref{eq:iterativa:1} 
 \small
 \begin{equation}\label{eq:iterativa:1}
 \begin{array}{l}
@@ -386,8 +387,8 @@ following iteratively the Eq. \ref{eq:iterativa:1}
 \end{array}
 \end{equation}
 \normalsize
-until $\mathbf{\hat{h}}_{i} \approx \mathbf{\hat{h}}_{l-1}$,
-where we declare that $\mathbf{\hat{h}}^{*} \equiv \mathbf{\hat{h}}_{i}$. 
+until $\mathbf{\hat{h}}_{l} \approx \mathbf{\hat{h}}_{l-1}$,
+where we declare that $\mathbf{\hat{h}}^{*} \equiv \mathbf{\hat{h}}_{l}$. 
 
 The variables in the Eq. \ref{eq:iterativa:1} are the regularization factor $0 \leq \alpha \leq 1.0$ 
 (chosen heuristically  by the user), the identity matrix $\mathbf{I}$ and
@@ -401,12 +402,11 @@ The variables in the Eq. \ref{eq:iterativa:1} are the regularization factor $0 \
 \vdots & \vdots & \ddots & \vdots \\ 
 \DERPAR{g}{h}{14}{1} & \DERPAR{g}{h}{14}{2} & \hdots & \DERPAR{g}{h}{14}{6} \\
 \end{matrix}
-\right]
+\right],
 \end{equation}
-
 \begin{equation}
 \DERPAR{g}{h}{j}{l}=
-\frac{1}{2 \rho^j}\frac{S_{l}^{j}}{\sqrt{1+\sum\limmits_{i=1}^{6} S_{i}^{j} \hat{h}_i}}
+\frac{1}{2 \rho^j}\frac{S_{l}^{j}}{\sqrt{1+\sum\limmits_{i=1}^{6} S_{i}^{j} \hat{h}_i}}.
 \end{equation}
 
 Thus, following the Eqs. \ref{eq:varchange}, \ref{EcDbh} and \ref{EcDa}; we obtain the optimum value,
@@ -417,7 +417,7 @@ so that
 \begin{equation} \label{EcDbhath}
 f_j(\mathbf{\hat{h}^*}~h_0) = f_0 \sqrt{1 +\sum_{i=1}^{6}{S^{j}_{i} \hat{h}^*_i}},
 \end{equation}
-and consequently
+and consequently (using the Eq. \ref{EcDbvech})
 \begin{equation} \label{EcDbhathvec}
 \mathbf{f}(\mathbf{\hat{h}^*}~h_0)= f_0 \sqrt{1 +\mathbf{S} \mathbf{\hat{h}^*}}.
 \end{equation}
@@ -430,7 +430,7 @@ Using iteratively the Eq. \ref{eq:iterativa:1} from $\mathbf{\hat{h}}_0$,
 \end{equation}
 until $||\mathbf{\hat{h}}_{l}-\mathbf{\hat{h}}_{l-1}||\leq 0.0001$,
 we obtain 
-\begin{equation}
+\begin{equation}\label{eq:iterativa:h:7}
 \mathbf{\hat{h}}_7 = \left[
 \begin{matrix}
 0.26344\\
@@ -474,7 +474,8 @@ The first type of error used in this work is
 \begin{equation}
 E_1=100~\frac{f_b-f_a}{f_a}~\%,
 \end{equation} 
-that measures the difference error of $f_b$ in relation to the target frequency ($f_a$) or relative tuning error.
+that measures the difference error of $f_b$ in relation to the target frequency ($f_a$),
+this error also can be called as relative tuning error.
 
 
 To obtain the biggest accepted relative tuning error,
@@ -492,7 +493,7 @@ to avoid a tone recognition mistake, it is equal to $-2.8468\% \equiv 100 (f_a/\
 
 \begin{mydef}[$E_2$ - semitone error]
 \label{def:max:E2}
-The logarithmic difference error between two frequencies $f_a$ and $f_b$ in relation to a semitone ($\rho$) is
+The logarithmic difference error between two frequencies $f_a$ (target) and $f_b$ in relation to a semitone ($\rho$) is
 defined as
 \begin{equation}
 E_2=100~\frac{ln(f_b)-ln(f_a)}{ln(\rho)}~\%, 
@@ -513,7 +514,7 @@ to avoid a tone recognition mistake, it is equal to $-50\% \equiv 100~\frac{ln( 
 
 
 \subsection{Analyzing the optimal $\mathbf{h^*}$}
-In the Eq. \ref{eq:optimalh} was calculated $\mathbf{h^*}=[h_1^*,$ $h_2^*,$ $...,$ $h_6^*]^{T}$, 
+In the Eqs. \ref{eq:optimalh} and \ref{eq:iterativa:h:7} was calculated $\mathbf{h^*}=[h_1^*,$ $h_2^*,$ $...,$ $h_6^*]^{T}$, 
 the optimal vector that minimize the function $e^2(\mathbf{h})$. 
 The Table \ref{table:h} shows each element of this vector in relation to $h_0$, 
 being that $ h_{i}^*/h_{0} \equiv  \left( \frac{l_0}{A_0}\right) \left( \frac{A_{i}}{l_{i}}    \right)$.
@@ -534,7 +535,7 @@ $h_1^*/h_0$ & $h_2^*/h_0$ & $h_3^*/h_0$ & $h_4^*/h_0$ & $h_5^*/h_0$ & $h_6^*/h_0
 In this table we observe that if 
 we consider $l_{i}$ a constant throughout the ocarina 
 then $h_{i}^*/h_{0} \propto A_{i}$ and 
-the percentages presented in the Table \ref{table:h} describes the ratio of proportions between areas $A_i$.
+the percentages presented in the Table \ref{table:h} describe the proportion ratio between areas $A_i$.
 So that below this condition 
 the optimal area $A_{2}$ is about twice $A_{1}$, 
 the optimal area $A_{3}$ is about $3.73 A_{1}$   
@@ -575,10 +576,8 @@ Note & Desired (hz)& Optimal (hz) & $E_1$ & $E_2$ \\ \hline
 \label{table:res}
 \end{table}
 The first column shows all notes used in the optimization calculation.
-The second column has the desired frequencies (equal temperament scale),
-this column is equivalent to the square root of vector $\mathbf{\hat{z}}$.
-The third column has the optimal generated frequencies,
-this column is equivalent to the square root of vector $\mathbf{z^*}$.
+The second column has the desired frequencies $\hat{f}_j$ (equal temperament scale).
+The third column has the optimal generated frequencies $f_j$.
 The fourth and fifth columns have the errors described in the Definitions \ref{def:max:E1} and \ref{def:max:E2},
 respectively.
 
@@ -590,8 +589,8 @@ having an error $E_2$ with a detour of $-27.309\%$ of a semitone.
 By the results show in the Table \ref{table:res}, we observe that 
 the optimal vector $\mathbf{h^*}$ causes that $e^2(\mathbf{h^*})> 0$
 and consequently a perfect equal temperament scale 
-it is not possible to be applied in the tuning of a John Taylor style six-hole ocarina
-only an optimal approximation. 
+it is not possible to be applied in the tuning of a John Taylor style six-hole ocarina,
+only it is possible an optimal approximation. 
 
 \subsection{Proposed tuning method}
 From the data of the Table \ref{table:res}, 
@@ -605,7 +604,7 @@ With these considerations, the Table \ref{table:example1} shows one tuning metho
 in which is considered a $C$ note equivalent to $523.2511 hz$.
 The method consist in follow the table \ref{table:example1} line a line from top at bottom. 
 So that we set in our ocarina, with each new created tone-hole, 
-the semitone error ($E_2$) shown in the fourth column of the table.
+the semitone error ($E_2$) shown in the fourth column of the Table \ref{table:example1}.
 
 \begin{table}[h]
 \center

@@ -18,12 +18,9 @@
 \usepackage{comment}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[
-backend=biber,
-style=alphabetic,
-sorting=ynt
-]{biblatex}
-\addbibresource{bibliografia.bib}
+\usepackage{natbib}
+\bibliographystyle{unsrtnat}
+
 \renewcommand*{\bibfont}{\footnotesize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -87,22 +84,22 @@ Exist vestiges of clay ocarinas in
 Shang dynasty peoples in Bronze Age China, 
 Bantu peoples of Southern Africa,
 pre-Columbian cultures in Peru, etc.
-\cite[pp. 589]{apel1969harvard} \cite[pp. 166-168]{sachs2012history} \cite[pp. 31]{leinweber2020art} \cite{rossi2020recuperacion}.
+\citep[pp. 589]{apel1969harvard} \citep[pp. 166-168]{sachs2012history} \citep[pp. 31]{leinweber2020art} \citep{rossi2020recuperacion}.
 
 The ocarinas around the world present many fingering tune methods and musical scales,
 one the last fingering style for 4 holes pendant-type ocarina was developed around 1964 
 by the English mathematician John Taylor 
 to approximate the tuning of an equal temperament scale 
-\cite[pp. 79]{metropolitan1985american} \cite[pp. 10]{galpin2001newsletter}.
+\citep[pp. 79]{metropolitan1985american} \citep[pp. 10]{galpin2001newsletter}.
 In this method, 
 the degree of approximation to an equal temperament scale depends a lot on the ability of the potter or craftsman
 in to choose the correct size of area and clay thickness in all the tone-holes.
 
 The work presented here will study the math behind the whistles (an ocarina without tone-holes)  
-or more formally a Helmholtz resonant cavity \cite{corning2011resonance} excited by a jet-edge-resonator system \cite[pp. 3]{gibiat2013acoustic} \cite[pp. 138]{nyborg1953characteristics}. 
+or more formally a Helmholtz resonant cavity \citep{corning2011resonance} excited by a jet-edge-resonator system \citep[pp. 3]{gibiat2013acoustic} \citep[pp. 138]{nyborg1953characteristics}. 
 Additionally, will be studied some proposed models to describe in whistles with tone-holes (an ocarina),
 the resonant frequency in function of the size area and  clay thickness in the tone-holes 
-\cite{mp2010ocarina} \cite[pp. 44]{cabreraestudio} \cite[pp. 16]{1999air}.
+\citep{mp2010ocarina} \citep[pp. 44]{cabreraestudio} \citep[pp. 16]{1999air}.
 Finally, using a cost function an optimal tuning method will be presented 
 and the approximation error will be shown. 
 
@@ -119,7 +116,7 @@ and the holes $S_1$, $S_2$, $S_3$, ... and $S_6$ represent the tone-holes.
 \label{fig:ocarinaview}
 \end{figure}
 The fingering chart used in this ocarina model is shown in the Table \ref{table:chart} and it is based in the 
-4 holes fingering style proposed by John Taylor \cite[pp. 79, 146]{metropolitan1985american} \cite[pp. 30]{1999air}. 
+4 holes fingering style proposed by John Taylor \citep[pp. 79, 146]{metropolitan1985american} \citep[pp. 30]{1999air}. 
 This table indicates the configuration of open or close holes
 to produce the tones from $C$ until $D$ (a higher octave), where a value $S_i=1$ represents an 
 open hole and the value $S_i=0$ a closed hole.
@@ -189,13 +186,13 @@ ${\rho}^{10} f_{0}$ & ${\rho}^{11} f_{0}$ & ${\rho}^{12} f_{0}$ & ${\rho}^{13} f
 We can think of an ocarina as a whistle with tone-holes in its resonant cavity,
 so that when we open and close some of these holes, we can modify the pitch of generated sound.
 Thus, to understand the math of an ocarina first we should to know the science behind the whistles  
-or more formally a Helmholtz resonant cavity \cite{corning2011resonance} (see Fig. \ref{fig:resonador}) excited by a jet-edge-resonator system (see Fig. \ref{football-referee-whistle}) \cite[pp. 3]{gibiat2013acoustic} \cite[pp. 138]{nyborg1953characteristics}. 
+or more formally a Helmholtz resonant cavity \citep{corning2011resonance} (see Fig. \ref{fig:resonador}) excited by a jet-edge-resonator system (see Fig. \ref{football-referee-whistle}) \citep[pp. 3]{gibiat2013acoustic} \citep[pp. 138]{nyborg1953characteristics}. 
 In this sense the Eq. (\ref{eq:Apito}) 
 \begin{equation} 
 \label{eq:Apito}
  f_0 = \frac{c}{2 \pi} \sqrt{\frac{A_{0}}{l_{0}V} }  
 \end{equation}
-shows the way of to calculate the frequency $f_0$ of a theoretic\footnote{In  a sphere-like resonant cavity, the open area of the neck should be much less than the total surface area of the resonant cavity.} whistle \cite[pp. 3]{gibiat2013acoustic} \cite[pp. 5]{kobayashi20093d} \cite[pp. 265]{okadanumerical}
+shows the way of to calculate the frequency $f_0$ of a theoretic\footnote{In  a sphere-like resonant cavity, the open area of the neck should be much less than the total surface area of the resonant cavity.} whistle \citep[pp. 3]{gibiat2013acoustic} \citep[pp. 5]{kobayashi20093d} \citep[pp. 265]{okadanumerical}
 in relation with the constants $\pi$  and $c$ (the velocity of sound), and 
 the variables: $V$ the volume of its resonant cavity,
 $A_0$ its cross-section neck area and $l_0$ the neck effective length in the resonator.
@@ -230,7 +227,7 @@ can be represented like a function of the total tone-holes area $A$.
 \label{fig:ocarina-teorica}
 \end{figure}
 
-In the article ``La Ocarina de Zanahoria a Carrot Ocarina'' \cite{mp2010ocarina}
+In the article ``La Ocarina de Zanahoria a Carrot Ocarina'' \citep{mp2010ocarina}
 were analyzed data about of the increment of resonant frequency $f$ in relation to the augment of area $A$,
 showing that in that case study the relationships between the variables can be approximated with a line 
 \begin{equation}
@@ -249,7 +246,7 @@ The Fig. \ref{fig:models} shows this linear curve in relation to the collected d
 
 By other side, 
 if we follow the equation proposed by Bart Hopkin in its book ``Air Columns and Toneholes'' 
-\cite[pp. 44]{cabreraestudio} \cite[pp. 16]{1999air} and we assume that all the neck effective lengths in the tone-holes are equals,
+\citep[pp. 44]{cabreraestudio} \citep[pp. 16]{1999air} and we assume that all the neck effective lengths in the tone-holes are equals,
 we can fit the data of Fig. \ref{fig:models} with a square root function
 \begin{equation}
 f=d_1\sqrt{d_2+A},
@@ -268,7 +265,7 @@ John Taylor style six-hole ocarina.
 \subsection{Resonance frequency in ocarinas}
 \label{subsec:Resonance}
 For what is explained in the Sec. \ref{subsec:analyzing}, here 
-we use the equation \ref{EcA}, proposed by Bart Hopkin \cite[pp. 44]{cabreraestudio} \cite[pp. 16]{1999air},
+we use the equation \ref{EcA}, proposed by Bart Hopkin \citep[pp. 44]{cabreraestudio} \citep[pp. 16]{1999air},
 \begin{equation} \label{EcA}
  f = \frac{c}{2 \pi} \sqrt{\frac{\frac{A_{0}S_{0}}{l_{0}}+\frac{A_{1}S_{1}}{l_{1}}+\frac{A_{2}S_{2}}{l_{2}}+ . . .}{V} }   
 \end{equation}
@@ -372,7 +369,7 @@ g_j (\mathbf{\hat{h}})=\frac{1}{\rho^j}\sqrt{1+\sum\limmits_{i=1}^{6} S_{i}^{j} 
 
 The minimization problem of Eq. (\ref{eq:minimization}) can be fitted as a case of multiple nonlinear regression 
 that can be solved using regularization 
-\cite[pp. 129]{pujaicoriverafernando2020}. 
+\citep[pp. 129]{pujaicoriverafernando2020}. 
 Thus, following this method, we obtain that the vector $\mathbf{\hat{h}}^{*}$, 
 \begin{equation}
 \mathbf{\hat{h}}^{*}= \underset{\mathbf{\hat{h}}}{\operatorname {arg\,min}}~\hat{e}^2(\mathbf{\hat{h}})
@@ -648,7 +645,7 @@ This method can be complemented with the information of the relations between ar
 in an optimal tuning shown in the Table \ref{table:h}.
 
 
-\printbibliography
+\bibliography{bibliografia}
 
 
 %\bibitem{JohnTaylorRef}
